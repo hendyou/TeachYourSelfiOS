@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B319EA7F17CC7AB4002DAA67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B319EA7E17CC7AB4002DAA67 /* UIKit.framework */; };
+		B319EA8117CC7AB4002DAA67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B319EA8017CC7AB4002DAA67 /* Foundation.framework */; };
+		B319EA8317CC7AB4002DAA67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B319EA8217CC7AB4002DAA67 /* CoreGraphics.framework */; };
+		B319EA8917CC7AB5002DAA67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B319EA8717CC7AB5002DAA67 /* InfoPlist.strings */; };
+		B319EA8B17CC7AB5002DAA67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B319EA8A17CC7AB5002DAA67 /* main.m */; };
+		B319EA8F17CC7AB5002DAA67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B319EA8E17CC7AB5002DAA67 /* AppDelegate.m */; };
+		B319EA9117CC7AB5002DAA67 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B319EA9017CC7AB5002DAA67 /* Default.png */; };
+		B319EA9317CC7AB5002DAA67 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B319EA9217CC7AB5002DAA67 /* Default@2x.png */; };
+		B319EA9517CC7AB5002DAA67 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B319EA9417CC7AB5002DAA67 /* Default-568h@2x.png */; };
+		B319EA9D17CC7ADD002DAA67 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B319EA9C17CC7ADD002DAA67 /* RootViewController.m */; };
+		B319EAA017CC7C3D002DAA67 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B319EA9F17CC7C3D002DAA67 /* ModalViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B319EA7B17CC7AB4002DAA67 /* ModalViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModalViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B319EA7E17CC7AB4002DAA67 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B319EA8017CC7AB4002DAA67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B319EA8217CC7AB4002DAA67 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B319EA8617CC7AB5002DAA67 /* ModalViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ModalViewController-Info.plist"; sourceTree = "<group>"; };
+		B319EA8817CC7AB5002DAA67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B319EA8A17CC7AB5002DAA67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B319EA8C17CC7AB5002DAA67 /* ModalViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ModalViewController-Prefix.pch"; sourceTree = "<group>"; };
+		B319EA8D17CC7AB5002DAA67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B319EA8E17CC7AB5002DAA67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B319EA9017CC7AB5002DAA67 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B319EA9217CC7AB5002DAA67 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B319EA9417CC7AB5002DAA67 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B319EA9B17CC7ADD002DAA67 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
+		B319EA9C17CC7ADD002DAA67 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../RootViewController.m; sourceTree = "<group>"; };
+		B319EA9E17CC7C3D002DAA67 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		B319EA9F17CC7C3D002DAA67 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B319EA7817CC7AB4002DAA67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B319EA7F17CC7AB4002DAA67 /* UIKit.framework in Frameworks */,
+				B319EA8117CC7AB4002DAA67 /* Foundation.framework in Frameworks */,
+				B319EA8317CC7AB4002DAA67 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B319EA7217CC7AB4002DAA67 = {
+			isa = PBXGroup;
+			children = (
+				B319EA8417CC7AB4002DAA67 /* ModalViewController */,
+				B319EA7D17CC7AB4002DAA67 /* Frameworks */,
+				B319EA7C17CC7AB4002DAA67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B319EA7C17CC7AB4002DAA67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B319EA7B17CC7AB4002DAA67 /* ModalViewController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B319EA7D17CC7AB4002DAA67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B319EA7E17CC7AB4002DAA67 /* UIKit.framework */,
+				B319EA8017CC7AB4002DAA67 /* Foundation.framework */,
+				B319EA8217CC7AB4002DAA67 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B319EA8417CC7AB4002DAA67 /* ModalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B319EA9B17CC7ADD002DAA67 /* RootViewController.h */,
+				B319EA9C17CC7ADD002DAA67 /* RootViewController.m */,
+				B319EA9E17CC7C3D002DAA67 /* ModalViewController.h */,
+				B319EA9F17CC7C3D002DAA67 /* ModalViewController.m */,
+				B319EA8D17CC7AB5002DAA67 /* AppDelegate.h */,
+				B319EA8E17CC7AB5002DAA67 /* AppDelegate.m */,
+				B319EA8517CC7AB5002DAA67 /* Supporting Files */,
+			);
+			path = ModalViewController;
+			sourceTree = "<group>";
+		};
+		B319EA8517CC7AB5002DAA67 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B319EA8617CC7AB5002DAA67 /* ModalViewController-Info.plist */,
+				B319EA8717CC7AB5002DAA67 /* InfoPlist.strings */,
+				B319EA8A17CC7AB5002DAA67 /* main.m */,
+				B319EA8C17CC7AB5002DAA67 /* ModalViewController-Prefix.pch */,
+				B319EA9017CC7AB5002DAA67 /* Default.png */,
+				B319EA9217CC7AB5002DAA67 /* Default@2x.png */,
+				B319EA9417CC7AB5002DAA67 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B319EA7A17CC7AB4002DAA67 /* ModalViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B319EA9817CC7AB5002DAA67 /* Build configuration list for PBXNativeTarget "ModalViewController" */;
+			buildPhases = (
+				B319EA7717CC7AB4002DAA67 /* Sources */,
+				B319EA7817CC7AB4002DAA67 /* Frameworks */,
+				B319EA7917CC7AB4002DAA67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModalViewController;
+			productName = ModalViewController;
+			productReference = B319EA7B17CC7AB4002DAA67 /* ModalViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B319EA7317CC7AB4002DAA67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Hendy;
+			};
+			buildConfigurationList = B319EA7617CC7AB4002DAA67 /* Build configuration list for PBXProject "ModalViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B319EA7217CC7AB4002DAA67;
+			productRefGroup = B319EA7C17CC7AB4002DAA67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B319EA7A17CC7AB4002DAA67 /* ModalViewController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B319EA7917CC7AB4002DAA67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B319EA8917CC7AB5002DAA67 /* InfoPlist.strings in Resources */,
+				B319EA9117CC7AB5002DAA67 /* Default.png in Resources */,
+				B319EA9317CC7AB5002DAA67 /* Default@2x.png in Resources */,
+				B319EA9517CC7AB5002DAA67 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B319EA7717CC7AB4002DAA67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B319EA8B17CC7AB5002DAA67 /* main.m in Sources */,
+				B319EA8F17CC7AB5002DAA67 /* AppDelegate.m in Sources */,
+				B319EA9D17CC7ADD002DAA67 /* RootViewController.m in Sources */,
+				B319EAA017CC7C3D002DAA67 /* ModalViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B319EA8717CC7AB5002DAA67 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B319EA8817CC7AB5002DAA67 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B319EA9617CC7AB5002DAA67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B319EA9717CC7AB5002DAA67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B319EA9917CC7AB5002DAA67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ModalViewController/ModalViewController-Prefix.pch";
+				INFOPLIST_FILE = "ModalViewController/ModalViewController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B319EA9A17CC7AB5002DAA67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ModalViewController/ModalViewController-Prefix.pch";
+				INFOPLIST_FILE = "ModalViewController/ModalViewController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B319EA7617CC7AB4002DAA67 /* Build configuration list for PBXProject "ModalViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B319EA9617CC7AB5002DAA67 /* Debug */,
+				B319EA9717CC7AB5002DAA67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B319EA9817CC7AB5002DAA67 /* Build configuration list for PBXNativeTarget "ModalViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B319EA9917CC7AB5002DAA67 /* Debug */,
+				B319EA9A17CC7AB5002DAA67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B319EA7317CC7AB4002DAA67 /* Project object */;
+}

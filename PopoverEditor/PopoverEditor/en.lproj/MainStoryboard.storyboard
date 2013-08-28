@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Initial-->
+        <scene sceneID="4">
+            <objects>
+                <viewController id="2" userLabel="Initial" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email Address:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpj-g7-b7A">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="XXX@???.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iK0-GY-oqh">
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zs-3N-HX8">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="vp1-yX-u3s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5oB-9c-JRV" kind="popover" identifier="toEditor" popoverAnchorView="8Zs-3N-HX8" id="BBS-wo-gjb">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iK0-GY-oqh" firstAttribute="centerX" secondItem="Rpj-g7-b7A" secondAttribute="centerX" type="default" id="4Tr-Xo-YOu"/>
+                            <constraint firstItem="iK0-GY-oqh" firstAttribute="top" secondItem="5" secondAttribute="top" constant="464" id="Bly-Lq-VV8"/>
+                            <constraint firstAttribute="trailing" secondItem="iK0-GY-oqh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="K1d-ki-sjF"/>
+                            <constraint firstItem="iK0-GY-oqh" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="X36-Jz-MrD"/>
+                            <constraint firstItem="8Zs-3N-HX8" firstAttribute="centerX" secondItem="iK0-GY-oqh" secondAttribute="centerX" type="default" id="amp-Zt-dqI"/>
+                            <constraint firstItem="Rpj-g7-b7A" firstAttribute="top" secondItem="5" secondAttribute="top" constant="382" id="ld9-FH-c0q"/>
+                            <constraint firstAttribute="bottom" secondItem="8Zs-3N-HX8" secondAttribute="bottom" constant="416" id="tZQ-3E-MSz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="iK0-GY-oqh" id="MzS-N2-9TG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Editor-->
+        <scene sceneID="cah-ni-kxB">
+            <objects>
+                <viewController id="5oB-9c-JRV" userLabel="Editor" customClass="EditorViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wWA-Mv-amA">
+                        <rect key="frame" x="0.0" y="20" width="320" height="120"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email Address:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwj-IT-W6R">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="219" id="WKu-w2-UXW"/>
+                                    <constraint firstAttribute="height" constant="36" id="gWs-BN-0Rr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="L07-3o-bYV">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L07-3o-bYV" firstAttribute="leading" secondItem="wWA-Mv-amA" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0zN-tV-6Hd"/>
+                            <constraint firstAttribute="trailing" secondItem="L07-3o-bYV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="SG5-9B-0s1"/>
+                            <constraint firstItem="L07-3o-bYV" firstAttribute="centerX" secondItem="Dwj-IT-W6R" secondAttribute="centerX" type="default" id="WMi-cy-QAo"/>
+                            <constraint firstItem="Dwj-IT-W6R" firstAttribute="top" secondItem="wWA-Mv-amA" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hoP-Tx-E7V"/>
+                            <constraint firstAttribute="bottom" secondItem="L07-3o-bYV" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="kwh-OG-dAQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="L07-3o-bYV" id="odo-lN-40A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dX-7W-yyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002" y="541"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="EditorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditorViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
