@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B32E1E6217D56B930020E625 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32E1E6117D56B930020E625 /* UIKit.framework */; };
+		B32E1E6417D56B930020E625 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32E1E6317D56B930020E625 /* Foundation.framework */; };
+		B32E1E6617D56B930020E625 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32E1E6517D56B930020E625 /* CoreGraphics.framework */; };
+		B32E1E6C17D56B930020E625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B32E1E6A17D56B930020E625 /* InfoPlist.strings */; };
+		B32E1E6E17D56B930020E625 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B32E1E6D17D56B930020E625 /* main.m */; };
+		B32E1E7217D56B930020E625 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B32E1E7117D56B930020E625 /* AppDelegate.m */; };
+		B32E1E7417D56B930020E625 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B32E1E7317D56B930020E625 /* Default.png */; };
+		B32E1E7617D56B930020E625 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32E1E7517D56B930020E625 /* Default@2x.png */; };
+		B32E1E7817D56B930020E625 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B32E1E7717D56B930020E625 /* Default-568h@2x.png */; };
+		B32E1E8017D56BA40020E625 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32E1E7F17D56BA40020E625 /* TableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B32E1E5E17D56B930020E625 /* TableViewMultipleSelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewMultipleSelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B32E1E6117D56B930020E625 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B32E1E6317D56B930020E625 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B32E1E6517D56B930020E625 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B32E1E6917D56B930020E625 /* TableViewMultipleSelection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TableViewMultipleSelection-Info.plist"; sourceTree = "<group>"; };
+		B32E1E6B17D56B930020E625 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B32E1E6D17D56B930020E625 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B32E1E6F17D56B930020E625 /* TableViewMultipleSelection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableViewMultipleSelection-Prefix.pch"; sourceTree = "<group>"; };
+		B32E1E7017D56B930020E625 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B32E1E7117D56B930020E625 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B32E1E7317D56B930020E625 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B32E1E7517D56B930020E625 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B32E1E7717D56B930020E625 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B32E1E7E17D56BA40020E625 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		B32E1E7F17D56BA40020E625 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B32E1E5B17D56B930020E625 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B32E1E6217D56B930020E625 /* UIKit.framework in Frameworks */,
+				B32E1E6417D56B930020E625 /* Foundation.framework in Frameworks */,
+				B32E1E6617D56B930020E625 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B32E1E5517D56B930020E625 = {
+			isa = PBXGroup;
+			children = (
+				B32E1E6717D56B930020E625 /* TableViewMultipleSelection */,
+				B32E1E6017D56B930020E625 /* Frameworks */,
+				B32E1E5F17D56B930020E625 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B32E1E5F17D56B930020E625 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B32E1E5E17D56B930020E625 /* TableViewMultipleSelection.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B32E1E6017D56B930020E625 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B32E1E6117D56B930020E625 /* UIKit.framework */,
+				B32E1E6317D56B930020E625 /* Foundation.framework */,
+				B32E1E6517D56B930020E625 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B32E1E6717D56B930020E625 /* TableViewMultipleSelection */ = {
+			isa = PBXGroup;
+			children = (
+				B32E1E7017D56B930020E625 /* AppDelegate.h */,
+				B32E1E7117D56B930020E625 /* AppDelegate.m */,
+				B32E1E7E17D56BA40020E625 /* TableViewController.h */,
+				B32E1E7F17D56BA40020E625 /* TableViewController.m */,
+				B32E1E6817D56B930020E625 /* Supporting Files */,
+			);
+			name = TableViewMultipleSelection;
+			path = TableViewEditing;
+			sourceTree = "<group>";
+		};
+		B32E1E6817D56B930020E625 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B32E1E6917D56B930020E625 /* TableViewMultipleSelection-Info.plist */,
+				B32E1E6A17D56B930020E625 /* InfoPlist.strings */,
+				B32E1E6D17D56B930020E625 /* main.m */,
+				B32E1E6F17D56B930020E625 /* TableViewMultipleSelection-Prefix.pch */,
+				B32E1E7317D56B930020E625 /* Default.png */,
+				B32E1E7517D56B930020E625 /* Default@2x.png */,
+				B32E1E7717D56B930020E625 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B32E1E5D17D56B930020E625 /* TableViewMultipleSelection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B32E1E7B17D56B930020E625 /* Build configuration list for PBXNativeTarget "TableViewMultipleSelection" */;
+			buildPhases = (
+				B32E1E5A17D56B930020E625 /* Sources */,
+				B32E1E5B17D56B930020E625 /* Frameworks */,
+				B32E1E5C17D56B930020E625 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TableViewMultipleSelection;
+			productName = TableViewEditing;
+			productReference = B32E1E5E17D56B930020E625 /* TableViewMultipleSelection.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B32E1E5617D56B930020E625 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Hendy;
+			};
+			buildConfigurationList = B32E1E5917D56B930020E625 /* Build configuration list for PBXProject "TableViewMultipleSelection" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B32E1E5517D56B930020E625;
+			productRefGroup = B32E1E5F17D56B930020E625 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B32E1E5D17D56B930020E625 /* TableViewMultipleSelection */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B32E1E5C17D56B930020E625 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B32E1E6C17D56B930020E625 /* InfoPlist.strings in Resources */,
+				B32E1E7417D56B930020E625 /* Default.png in Resources */,
+				B32E1E7617D56B930020E625 /* Default@2x.png in Resources */,
+				B32E1E7817D56B930020E625 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B32E1E5A17D56B930020E625 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B32E1E6E17D56B930020E625 /* main.m in Sources */,
+				B32E1E7217D56B930020E625 /* AppDelegate.m in Sources */,
+				B32E1E8017D56BA40020E625 /* TableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B32E1E6A17D56B930020E625 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B32E1E6B17D56B930020E625 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B32E1E7917D56B930020E625 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B32E1E7A17D56B930020E625 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B32E1E7C17D56B930020E625 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TableViewEditing/TableViewMultipleSelection-Prefix.pch";
+				INFOPLIST_FILE = "TableViewEditing/TableViewMultipleSelection-Info.plist";
+				PRODUCT_NAME = TableViewMultipleSelection;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B32E1E7D17D56B930020E625 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TableViewEditing/TableViewMultipleSelection-Prefix.pch";
+				INFOPLIST_FILE = "TableViewEditing/TableViewMultipleSelection-Info.plist";
+				PRODUCT_NAME = TableViewMultipleSelection;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B32E1E5917D56B930020E625 /* Build configuration list for PBXProject "TableViewMultipleSelection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B32E1E7917D56B930020E625 /* Debug */,
+				B32E1E7A17D56B930020E625 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B32E1E7B17D56B930020E625 /* Build configuration list for PBXNativeTarget "TableViewMultipleSelection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B32E1E7C17D56B930020E625 /* Debug */,
+				B32E1E7D17D56B930020E625 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B32E1E5617D56B930020E625 /* Project object */;
+}

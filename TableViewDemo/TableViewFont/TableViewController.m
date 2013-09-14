@@ -35,7 +35,7 @@
     [view release];
     
 //    self.listArray = [UIFont familyNames];
-    self.listArray = @[@"UITableViewStyleGrouped", @"UITableViewStylePlain", @"...", @"****",];
+    self.listArray = @[@"UITableViewStyleGrouped", @"UITableViewStylePlain"];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWight, kDeviceHeight - self.navigationController.navigationBar.frame.size.height) style:UITableViewStylePlain];
 //    NSLog(@"%f", kDeviceHeight);
@@ -129,8 +129,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSLog(@"didSelectRowAtIndexPath %@", indexPath);
     DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    detailViewController.isPlain = indexPath.row == 0 ? YES : NO;
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 }

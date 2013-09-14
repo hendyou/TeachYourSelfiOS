@@ -12,6 +12,9 @@
 {
 @private
     UITableView *_tableView;
-    NSArray *_listArray;
+    NSMutableArray *_fontsArray;
+    NSIndexPath *_lastSelected;
 }
+
+@property (nonatomic, assign) BOOL isPlain;
 @end

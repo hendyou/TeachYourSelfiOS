@@ -14,7 +14,6 @@
 		B38620A0170C814200463BD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B386209F170C814200463BD8 /* main.m */; };
 		B38620A4170C814200463BD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B38620A3170C814200463BD8 /* AppDelegate.m */; };
 		B38620A6170C814200463BD8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B38620A5170C814200463BD8 /* Default.png */; };
-		B38620A8170C814200463BD8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38620A7170C814200463BD8 /* Default@2x.png */; };
 		B38620AA170C814300463BD8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B38620A9170C814300463BD8 /* Default-568h@2x.png */; };
 		B38620AD170C814300463BD8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38620AB170C814300463BD8 /* MainStoryboard.storyboard */; };
 		B38620B0170C814300463BD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B38620AF170C814300463BD8 /* ViewController.m */; };
@@ -40,7 +39,6 @@
 		B38620A2170C814200463BD8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B38620A3170C814200463BD8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B38620A5170C814200463BD8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		B38620A7170C814200463BD8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B38620A9170C814300463BD8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B38620AC170C814300463BD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B38620AE170C814300463BD8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				B386209F170C814200463BD8 /* main.m */,
 				B38620A1170C814200463BD8 /* CustomPicker-Prefix.pch */,
 				B38620A5170C814200463BD8 /* Default.png */,
-				B38620A7170C814200463BD8 /* Default@2x.png */,
 				B38620A9170C814300463BD8 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -194,7 +191,6 @@
 			files = (
 				B386209E170C814200463BD8 /* InfoPlist.strings in Resources */,
 				B38620A6170C814200463BD8 /* Default.png in Resources */,
-				B38620A8170C814200463BD8 /* Default@2x.png in Resources */,
 				B38620AA170C814300463BD8 /* Default-568h@2x.png in Resources */,
 				B38620AD170C814300463BD8 /* MainStoryboard.storyboard in Resources */,
 				B38620BE170C81A600463BD8 /* bear.png in Resources */,
@@ -342,6 +338,7 @@
 				B38620B5170C814300463BD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

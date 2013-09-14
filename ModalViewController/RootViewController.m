@@ -55,7 +55,7 @@
     //判断系统版本
     float version = [[UIDevice currentDevice].systemVersion floatValue];
     NSLog(@"version: %.2f", version);
-    if (version < 6.0) {
+    if (version < 5.0) {
         [self presentModalViewController:modal animated:YES];
         NSLog(@"presentModalViewController");
     } else {
