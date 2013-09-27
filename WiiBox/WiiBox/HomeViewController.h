@@ -8,7 +8,21 @@
 //
 
 #import "BaseViewController.h"
+#import "BaseTableView.h"
 
-@interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate>
+@class WeiboTableView;
+@class ThemeImageView;
+
+@interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate, UITableViewEventDelegate>
+{
+    WeiboTableView *_tableView;
+    ThemeImageView *_weiboCountView;
+    UILabel *_countLabel;
+}
+
+@property (copy, nonatomic) NSString *topId;
+@property (copy, nonatomic) NSString *lastId;
+
+- (void)initLoading;
 
 @end

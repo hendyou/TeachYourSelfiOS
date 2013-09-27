@@ -69,6 +69,12 @@
                          httpMethod:(NSString *)httpMethod
                            delegate:(id<SinaWeiboRequestDelegate>)delegate;
 
+//-----------Added by Hendy-------------
+- (SinaWeiboRequest *)requestWithURL:(NSString *)url
+                              params:(NSMutableDictionary *)params
+                          httpMethod:(NSString *)httpMethod
+                            finished:(RequestFinishBlock)block;
+
 @end
 
 

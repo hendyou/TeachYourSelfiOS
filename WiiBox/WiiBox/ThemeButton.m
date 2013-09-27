@@ -22,12 +22,12 @@
 
 - (void)themeChangedNotification:(NSNotification *)notification
 {
-    [self loadImage];
+    [self loadThemeImage];
 }
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:kThemeDidChangedNofication];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kThemeDidChangedNofication object:nil];
     [super dealloc];
 }
 
@@ -51,7 +51,7 @@
     return self;
 }
 
-- (void)loadImage
+- (void)loadThemeImage
 {
     ThemeManager *themeManager = [ThemeManager shareThemeManager];
     

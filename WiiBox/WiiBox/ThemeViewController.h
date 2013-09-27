@@ -10,9 +10,11 @@
 
 @interface ThemeViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 {
+    @private
     NSArray *_themeArray;
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) NSIndexPath *currentChecked;
 
 @end

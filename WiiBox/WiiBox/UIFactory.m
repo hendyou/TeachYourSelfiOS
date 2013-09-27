@@ -23,4 +23,16 @@
     return [button autorelease];
 }
 
++ (ThemeImageView *)createImageView:(NSString *)imageName
+{
+    ThemeImageView *imageView = [[ThemeImageView alloc] initWithImageName:imageName];
+    return [imageView autorelease];
+}
+
++ (ThemeLabel *)createLabel:(NSString *)fontColorName
+{
+    ThemeLabel *label = [[ThemeLabel alloc] initWithFontColor:fontColorName];
+    return [label autorelease];
+}
+
 @end

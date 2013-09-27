@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "ThemeButton.h"
+#import "ThemeImageView.h"
+#import "ThemeLabel.h"
 
 @interface UIFactory : NSObject
 
 + (ThemeButton *)createButton:(NSString *)imageName highlighted:(NSString*)highlightedName;
 
 + (ThemeButton *)createButton:(NSString *)background highlightedBackground:(NSString *)highlightedBackground;
+
++ (ThemeImageView *)createImageView:(NSString *)imageName;
+
++ (ThemeLabel *)createLabel:(NSString *)fontColorName;
 
 @end

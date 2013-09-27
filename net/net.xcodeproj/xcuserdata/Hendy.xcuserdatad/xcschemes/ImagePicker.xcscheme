@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B33DC60817D86811005388A5"
-               BuildableName = "ImagePicker.app"
+               BuildableName = "net.app"
                BlueprintName = "net"
                ReferencedContainer = "container:net.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B33DC60817D86811005388A5"
-            BuildableName = "ImagePicker.app"
+            BuildableName = "net.app"
             BlueprintName = "net"
             ReferencedContainer = "container:net.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B33DC60817D86811005388A5"
-            BuildableName = "ImagePicker.app"
+            BuildableName = "net.app"
             BlueprintName = "net"
             ReferencedContainer = "container:net.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B33DC60817D86811005388A5"
-            BuildableName = "ImagePicker.app"
+            BuildableName = "net.app"
             BlueprintName = "net"
             ReferencedContainer = "container:net.xcodeproj">
          </BuildableReference>

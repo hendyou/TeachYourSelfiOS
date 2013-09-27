@@ -26,6 +26,7 @@ static ThemeManager *singleton = nil;
 {
     self = [super init];
     if (self) {
+        //主题路径
         NSString *themePath = [[NSBundle mainBundle] pathForResource:@"theme" ofType:@"plist"];
         self.themesPlist = [NSDictionary dictionaryWithContentsOfFile:themePath];
         
@@ -93,6 +94,39 @@ static ThemeManager *singleton = nil;
     }
     
     return resourcePath;
+}
+
+//overide
+- (void)setThemeName:(NSString *)themeName
+{
+    if (_themeName != themeName) {
+        [_themeName release];
+        _themeName = [themeName copy];
+        
+        //切换字体颜色
+        NSString *fontColorPlistPath = [[self themePath] stringByAppendingPathComponent:@"fontColor.plist"];
+        self.fontColorPlist = [NSDictionary dictionaryWithContentsOfFile:fontColorPlistPath];
+    }
+}
+
+- (UIColor *)fontColor:(NSString *)name
+{
+    if (NSStringIsEmpty(name)) {
+        return nil;
+    }
+    
+    NSString *colorStr = self.fontColorPlist[name];
+    NSArray *rgbs = [colorStr componentsSeparatedByString:@","];
+    if (rgbs.count == 3) {
+        float red = [rgbs[0] floatValue];
+        float green = [rgbs[1] floatValue];
+        float blue = [rgbs[2] floatValue];
+        
+        UIColor *color = [UIColor colorWithRed:red/255 green:green/255 blue:blue/255 alpha:1];
+        return color;
+    } else {
+        return nil;
+    }
 }
 
 @end

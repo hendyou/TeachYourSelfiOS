@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>default</key>
-	<string></string>
-	<key>pink</key>
-	<string>Skins/pink</string>
+	<string>image</string>
 	<key>blue</key>
 	<string>Skins/blue</string>
+	<key>pink</key>
+	<string>Skins/pink</string>
 </dict>
 </plist>

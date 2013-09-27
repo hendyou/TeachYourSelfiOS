@@ -35,19 +35,24 @@
     
     NSArray *viewControllers = self.navigationController.viewControllers;
     if (viewControllers.count > 1) {
-//        UIButton *backBtn = [UIFactory createButton:@"navigationbar_back.png" highlighted:@"navigationbar_back_highlighted.png"];
-//        backBtn.frame = CGRectMake(0, 0, 24, 24);
-//        [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-//        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-        [backItem setBackButtonBackgroundImage:[[ThemeManager shareThemeManager] themeImage:@"navigationbar_back.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [backItem setBackButtonBackgroundImage:[[ThemeManager shareThemeManager] themeImage:@"navigationbar_back_highlighted.png"] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+        UIButton *backBtn = [UIFactory createButton:@"navigationbar_back.png" highlighted:@"navigationbar_back_highlighted.png"];
+        backBtn.frame = CGRectMake(0, 0, 24, 24);
+        [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 
-        self.navigationItem.backBarButtonItem = backItem;
+        self.navigationItem.leftBarButtonItem = backItem;
         [backItem release];
         
     }
     
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    if (self.tabBarController != nil && self.navigationController.viewControllers.count > 1) {
+        self.view.height += self.tabBarController.tabBar.height;
+    }
 }
 
 - (void)backAction
@@ -66,8 +71,7 @@
 {
     [super setTitle:title];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleLabel.textColor = [UIColor blackColor];
+    UILabel *titleLabel = [UIFactory createLabel:kNavigationBarTitleLabel];
     titleLabel.font = [UIFont boldSystemFontOfSize:18];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.text = title;

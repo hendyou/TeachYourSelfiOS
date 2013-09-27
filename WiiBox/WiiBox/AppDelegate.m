@@ -13,14 +13,15 @@
 #import "RightViewController.h"
 #import "SinaWeibo.h"
 #import "CONSTANTS.h"
+#import "ThemeManager.h"
 
 @implementation AppDelegate
 
 - (void)dealloc
 {
-    [_window release];
     [_main release];
     [_menu.rightViewController release];
+    [_window release];
     [_menu.leftViewController release];
     [_menu release];
     [super dealloc];
@@ -37,7 +38,18 @@
     _menu.rightViewController = right;
     _menu.leftViewController = left;
     
+    [self initSinaWeibo];
+    
     self.window.rootViewController = _menu;
+}
+
+- (void)setTheme
+{
+    NSString *themeName = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentTheme];
+    if (NSStringIsEmpty(themeName)) {
+        themeName = @"default";
+    }
+    [ThemeManager shareThemeManager].themeName = themeName;
 }
 
 - (void)initSinaWeibo
@@ -60,9 +72,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self initSinaWeibo];
+    [self setTheme];
     
     [self initRootViewController];
+    
     
     
     return YES;
