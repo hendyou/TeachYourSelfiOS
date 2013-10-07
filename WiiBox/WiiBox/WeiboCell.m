@@ -109,6 +109,11 @@
     _weiboView.frame = CGRectMake(0, _userImage.bottom + 5, ScreenWidth, [WeiboView weiboViewHeight:self.weiboModel isDetail:NO isRepost:NO]);
     _weiboView.weiboModel = self.weiboModel;
     
+    //判断系统版本, 6.0之前的版本不会调用WeiboView的layoutsubviews方法
+    if (WXHLOSVersion() < 6.0) {
+        [_weiboView setNeedsLayout];
+    }
+    
     //发布日期
     //Tue May 31 17:46:55 +0800 2011
     //from:  E MMM dd HH:mm:ss Z yyyy

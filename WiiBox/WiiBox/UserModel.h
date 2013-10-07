@@ -59,4 +59,6 @@
 @property(nonatomic,retain)NSNumber * statuses_count;   //微博数
 @property(nonatomic,retain)NSNumber * favourites_count;   //收藏数
 @property(nonatomic,retain)NSNumber * verified;   //是否是微博认证用户，即加V用户，true：是，false：否
+
+- (NSString *)sex;
 @end

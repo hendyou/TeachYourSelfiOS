@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>default</key>
-	<string>image</string>
+	<string></string>
 	<key>blue</key>
 	<string>Skins/blue</string>
 	<key>pink</key>

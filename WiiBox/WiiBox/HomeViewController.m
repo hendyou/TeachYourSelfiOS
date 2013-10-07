@@ -13,6 +13,7 @@
 #import "AttentionUtil.h"
 #import "MainViewController.h"
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 
 #define kLoadCount 20
 
@@ -62,6 +63,8 @@
     
     if (self.sinaweibo.isAuthValid) {
         [self loadData];
+    } else {
+        [self.sinaweibo logIn];
     }
 }
 
@@ -69,6 +72,22 @@
 {
     [super viewDidLayoutSubviews];
     _tableView.frame = self.view.bounds;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //开启左滑右滑
+    [self.appDelegate.menu setEnableGesture:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //禁用左滑右滑
+    [self.appDelegate.menu setEnableGesture:NO];
 }
 
 #pragma mark - Public methods
@@ -267,14 +286,6 @@
 //    [_tableView performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
     
     [self pullDownData];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    DetailViewController *detail = [[DetailViewController alloc] init];
-    [detail autorelease];
-    detail.weiboModel = _tableView.data[indexPath.row];
-    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (void)pullUp:(BaseTableView *)tableView

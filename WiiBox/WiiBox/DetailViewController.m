@@ -57,8 +57,7 @@
     [_userInfoBar release];
     [_userHeaderView release];
     [_userNameLabel release];
-    
-//    [_weiboView release];
+    [_weiboView release];
     [_weiboModel release];
     [super dealloc];
 }

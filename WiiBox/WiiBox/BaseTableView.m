@@ -16,6 +16,7 @@
     if (self) {
         // Initialization code
         _data = [[NSMutableArray array] retain];
+        self.isMore = YES;
         [self initViews];
     }
     return self;
@@ -38,7 +39,7 @@
     view.backgroundColor = [UIColor clearColor];
     view.delegate = self;
     [self addSubview:view];
-    _refreshHeaderView = [view retain];
+    _refreshHeaderView = view;
     
     //底部上拉更多
     _moreBtn = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
@@ -153,7 +154,17 @@
 	if (self.enableRefreshHeader) {
         [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
     }
-	
+    
+    if (self.isMore && !_moreBtn.hidden && _moreBtn.enabled) {
+        float offset = scrollView.contentOffset.y;
+        float contentHeight = scrollView.contentSize.height;
+        
+        float dis = scrollView.height - 49 - (contentHeight - offset);
+        if (dis > 30) {
+            [self loadMore];
+        }
+        
+    }
 }
 
 

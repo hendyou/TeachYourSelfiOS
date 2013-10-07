@@ -24,5 +24,6 @@
 @property (copy, nonatomic) NSString *lastId;
 
 - (void)initLoading;
+- (void)loadData;
 
 @end

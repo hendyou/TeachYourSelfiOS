@@ -75,8 +75,8 @@
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:[dataDic count]];
         for (NSString *key in dataDic) {
             [dic setValue:key forKey:key];
-            attrMapDic = dic;
         }
+        attrMapDic = dic;
 	}
 	NSEnumerator *keyEnum = [attrMapDic keyEnumerator];
 	id attributeName;

@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "SinaWeibo.h"
 
+@class AppDelegate;
+
 @interface BaseViewController : UIViewController
 
 - (SinaWeibo *)sinaweibo;
+- (AppDelegate *)appDelegate;
 
 @end

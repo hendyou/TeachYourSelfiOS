@@ -35,6 +35,7 @@
     
     NSArray *viewControllers = self.navigationController.viewControllers;
     if (viewControllers.count > 1) {
+        //返回键
         UIButton *backBtn = [UIFactory createButton:@"navigationbar_back.png" highlighted:@"navigationbar_back_highlighted.png"];
         backBtn.frame = CGRectMake(0, 0, 24, 24);
         [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
@@ -43,6 +44,15 @@
         self.navigationItem.leftBarButtonItem = backItem;
         [backItem release];
         
+        
+        //主页键
+        UIButton *homeBtn = [UIFactory createButton:@"tabbar_home.png" highlighted:@"tabbar_home_highlighted.png"];
+        homeBtn.frame = CGRectMake(0, 0, 30, 30);
+        [homeBtn addTarget:self action:@selector(homeClick) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *homeItem = [[UIBarButtonItem alloc] initWithCustomView:homeBtn];
+        
+        self.navigationItem.rightBarButtonItem = homeItem;
+        [homeItem release];
     }
     
 }
@@ -55,15 +65,16 @@
     }
 }
 
-- (void)backAction
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (SinaWeibo *)sinaweibo
 {
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     return delegate.sinaweibo;
+}
+
+- (AppDelegate *)appDelegate
+{
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    return delegate;
 }
 
 //overide
@@ -84,6 +95,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - On click
+- (void)backAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)homeClick
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

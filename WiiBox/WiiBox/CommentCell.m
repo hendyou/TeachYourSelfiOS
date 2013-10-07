@@ -26,6 +26,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     [ImageUtil fillet:_userHeaderView];
     
     _commentLabel = [[RTLabel alloc] initWithFrame:CGRectZero];

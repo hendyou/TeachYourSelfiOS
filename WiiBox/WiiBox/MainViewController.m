@@ -43,6 +43,8 @@
 	// Do any additional setup after loading the view.
     [self initViewControllers];
     
+    [self initTabBar];
+    
     //请求未读数
     [NSTimer scheduledTimerWithTimeInterval:kRefreshUnreadCountInterval target:self selector:@selector(requestUnreadCount) userInfo:nil repeats:YES];
 }
@@ -50,7 +52,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self initTabBar];
+    _tabBarView.frame = self.tabBar.frame;
 }
 
 - (void)dealloc
@@ -59,6 +61,7 @@
     [_slider release];
     [_badgeView release];
     [_badgeLabel release];
+    [_homeViewController release];
     [super dealloc];
 }
 
@@ -101,13 +104,13 @@
 #pragma mark - Init views
 - (void)initViewControllers
 {
-    HomeViewController *home = [[HomeViewController alloc] init];
+    _homeViewController = [[HomeViewController alloc] init];
     MessageViewController *message = [[MessageViewController alloc] init];
     ProfileViewController *profile = [[ProfileViewController alloc] init];
     DiscoverViewController *discover = [[DiscoverViewController alloc] init];
     MoreViewController *more = [[MoreViewController alloc] init];
     
-    NSArray *views = @[home, message, profile, discover, more];
+    NSArray *views = @[_homeViewController, message, profile, discover, more];
     NSMutableArray *naviViews = [NSMutableArray arrayWithCapacity:5];
     
     for (UIViewController *view in views) {
@@ -119,7 +122,6 @@
     
     self.viewControllers = naviViews;
     
-    [home release];
     [message release];
     [profile release];
     [discover release];
@@ -233,11 +235,15 @@
                               sinaweibo.refreshToken, @"refresh_token", nil];
     [[NSUserDefaults standardUserDefaults] setObject:authData forKey:@"SinaWeiboAuthData"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    //读取微博
+    [_homeViewController loadData];
 }
 - (void)sinaweiboDidLogOut:(SinaWeibo *)sinaweibo
 {
     NSLog(@"--------sinaweiboDidLogOut");
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"SinaWeiboAuthData"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 - (void)sinaweiboLogInDidCancel:(SinaWeibo *)sinaweibo
 {

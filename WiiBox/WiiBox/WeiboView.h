@@ -12,6 +12,7 @@
 
 #define kWeiboWidth ScreenWidth - 20
 #define kImageHeight 80
+#define kImageBigHeight 160
 #define kImageDetailHeight 200
 
 @class WeiboModel;

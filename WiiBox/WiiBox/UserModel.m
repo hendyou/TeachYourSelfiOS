@@ -10,4 +10,18 @@
 
 @implementation UserModel
 
+- (NSString *)sex
+{
+    NSString *sex = @"未知";
+    if (!NSStringIsEmpty(self.gender)) {
+        if ([self.gender isEqualToString:@"m"]) {
+            sex = @"男";
+        } else if ([self.gender isEqualToString:@"f"]) {
+            sex = @"女";
+        }
+    }
+    
+    return sex;
+}
+
 @end

@@ -16,15 +16,11 @@
     self = [super initWithFrame:frame style:style];
     if (self) {
         // Initialization code
-        self.enableRefreshHeader = NO;
+        self.enableRefreshHeader = YES;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 #pragma mark - Table view data source
 
@@ -66,6 +62,7 @@
     UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(0, 39, view.width, 1)];
     line.image = [UIImage imageNamed:@"userinfo_header_separator.png"];
     [view addSubview:line];
+    [line release];
     
     return [view autorelease];
 }

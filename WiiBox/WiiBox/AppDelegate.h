@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DDMenuController.h"
 
-@class DDMenuController;
 @class MainViewController;
 @class SinaWeibo;
 

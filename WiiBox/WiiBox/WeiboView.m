@@ -12,6 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "RegexKitLite.h"
 #import "NSString+URLEncoding.h"
+#import "UserViewController.h"
 
 #define ListFont 14.0f
 #define ListRepostFont 12.5f
@@ -45,7 +46,7 @@
 - (void)initViews
 {
     //转发视图背景
-    _retweetedBackgroundView = [UIFactory createImageView:@"timeline_retweet_background.png"];
+    _retweetedBackgroundView = [[UIFactory createImageView:@"timeline_retweet_background.png"] retain];
     UIEdgeInsets insets = UIEdgeInsetsMake(11, 26, 5, 4);
     _retweetedBackgroundView.image = [_retweetedBackgroundView.image resizableImageWithCapInsets:insets];
     _retweetedBackgroundView.insets = insets;
@@ -126,12 +127,8 @@
     
 }
 
-//设置布局
-- (void)layoutSubviews
+- (void)layoutWeiboContent
 {
-    [super layoutSubviews];
-    
-    //-----------微博内容-------------
     //是否为转发视图
     if (self.isRetweeted) {
         _textLabel.frame = CGRectMake(10, 10, kWeiboWidth - 20, 0);
@@ -145,8 +142,11 @@
     //文本内容尺寸
     CGSize textSize = _textLabel.optimumSize;
     _textLabel.height = textSize.height;
+}
+
+- (void)layoutRetweetedWeibo
+{
     
-    //-----------转发的微博视图-------------
     //转发的微博
     WeiboModel *retweetedWeibo = _weiboModel.retweeted;
     if (retweetedWeibo != nil) {
@@ -158,8 +158,11 @@
     } else {
         _retweetedView.hidden = YES;
     }
-    
-    //-----------微博图片-------------
+}
+
+//-----------微博图片-------------
+- (void)layoutWeiboPic
+{
     if (self.isDetail) {
         NSString *thumbnailPicUrl = _weiboModel.bmiddlePic;
         if (NSStringIsEmpty(thumbnailPicUrl)) {
@@ -172,29 +175,66 @@
             [_imageView setImageWithURL:[NSURL URLWithString:thumbnailPicUrl]];
         }
     } else {
-        
-        NSString *thumbnailPicUrl = _weiboModel.thumbnailPic;
-        if (NSStringIsEmpty(thumbnailPicUrl)) {
-            _imageView.hidden = YES;
-        } else {
-            _imageView.hidden = NO;
-            _imageView.frame = CGRectMake(10, _textLabel.bottom + 10, 70, kImageHeight);
-            
-            //加载网络图片
-            [_imageView setImageWithURL:[NSURL URLWithString:thumbnailPicUrl]];
+        //图片浏览模式
+        int scanMode = [[NSUserDefaults standardUserDefaults] integerForKey:kCurrentScanMode];
+        if (scanMode == 0) {    //小图
+            NSString *thumbnailPicUrl = _weiboModel.thumbnailPic;
+            if (NSStringIsEmpty(thumbnailPicUrl)) {
+                _imageView.hidden = YES;
+            } else {
+                _imageView.hidden = NO;
+                _imageView.frame = CGRectMake(10, _textLabel.bottom + 10, 70, kImageHeight);
+                
+                //加载网络图片
+                [_imageView setImageWithURL:[NSURL URLWithString:thumbnailPicUrl]];
+            }
+        } else {    //大图
+            NSString *thumbnailPicUrl = _weiboModel.bmiddlePic;
+            if (NSStringIsEmpty(thumbnailPicUrl)) {
+                _imageView.hidden = YES;
+            } else {
+                _imageView.hidden = NO;
+                _imageView.frame = CGRectMake(10, _textLabel.bottom + 10, 140, kImageBigHeight);
+                
+                //加载网络图片
+                [_imageView setImageWithURL:[NSURL URLWithString:thumbnailPicUrl]];
+            }
         }
+        
+        
     }
-    
+}
+
+
+- (void)layoutWeiboBackground
+{
     //-----------转发微博的背景-------------
     if (self.isRetweeted) {
         CGRect frame = self.bounds;
-//        frame.size.width -= 10;
         frame.size.height += 30;
         _retweetedBackgroundView.frame = frame;
         _retweetedBackgroundView.hidden = NO;
     } else {
         _retweetedBackgroundView.hidden = YES;
     }
+}
+
+//设置布局
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    //-----------微博内容-------------
+    [self layoutWeiboContent];
+    
+    //-----------转发的微博视图-------------
+    [self layoutRetweetedWeibo];
+    
+    //-----------微博图片-------------
+    [self layoutWeiboPic];
+    
+    //-----------转发微博的背景-------------
+    [self layoutWeiboBackground];
 }
 
 //计算微博视图的高度
@@ -216,7 +256,13 @@
     } else {
         textLabel.width = kWeiboWidth;
     }
-    textLabel.text = weiboModel.text;
+    NSMutableString *weiboText = [NSMutableString string];
+    if (isRepost) {
+        NSString *authorName = weiboModel.user.screen_name;
+        [weiboText appendString:[NSString stringWithFormat:@"%@: ", authorName]];
+    }
+    [weiboText appendString:weiboModel.text];
+    textLabel.text = weiboText;
     height += textLabel.optimumSize.height;
     [textLabel release];
     
@@ -229,10 +275,20 @@
             height += kImageDetailHeight + 10;
         }
     } else {
-        NSString *thumbnailImageUrl = weiboModel.thumbnailPic;
-        if (!NSStringIsEmpty(thumbnailImageUrl)) {
-            height += kImageHeight + 10;
+        //图片浏览模式
+        int scanMode = [[NSUserDefaults standardUserDefaults] integerForKey:kCurrentScanMode];
+        if (scanMode == 0) {    //小图
+            NSString *thumbnailImageUrl = weiboModel.thumbnailPic;
+            if (!NSStringIsEmpty(thumbnailImageUrl)) {
+                height += kImageHeight + 10;
+            }
+        } else {    //大图
+            NSString *thumbnailImageUrl = weiboModel.bmiddlePic;
+            if (!NSStringIsEmpty(thumbnailImageUrl)) {
+                height += kImageBigHeight + 10;
+            }
         }
+
     }
     
     //计算转发微博的高度
@@ -265,9 +321,16 @@
 {
     NSString *absoluteString = [url absoluteString];
     if ([absoluteString hasPrefix:@"user"]) {
-        NSString *host = [[url host] URLDecodedString];
-        NSLog(@"用户: %@", host);
+        NSString *userName = [[url host] URLDecodedString];
+        if ([userName hasPrefix:@"@"]) {
+            userName = [userName substringFromIndex:1];
+        }
+        NSLog(@"用户: %@", userName);
         
+        UserViewController *viewCtrl = [[UserViewController alloc] init];
+        viewCtrl.userName = userName;
+        [self.viewController.navigationController pushViewController:viewCtrl animated:YES];
+        [viewCtrl release];
     } else if ([absoluteString hasPrefix:@"http"]) {
         NSLog(@"%@", absoluteString);
     } else if ([absoluteString hasPrefix:@"topic"]) {

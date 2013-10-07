@@ -10,6 +10,7 @@
 #import "WeiboModel.h"
 #import "WeiboCell.h"
 #import "WeiboView.h"
+#import "DetailViewController.h"
 
 @implementation WeiboTableView
 
@@ -17,6 +18,8 @@
 {
     self = [super initWithFrame:frame style:style];
     if (self) {
+        //监听通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kReloadWeiboList object:nil];
     }
     return self;
 }
@@ -53,6 +56,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    DetailViewController *detail = [[DetailViewController alloc] init];
+    [detail autorelease];
+    detail.weiboModel = self.data[indexPath.row];
+    [self.viewController.navigationController pushViewController:detail animated:YES];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

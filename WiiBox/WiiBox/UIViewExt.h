@@ -30,3 +30,10 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 - (void) scaleBy: (CGFloat) scaleFactor;
 - (void) fitInSize: (CGSize) aSize;
 @end
+
+
+@interface UIView (ViewController)
+
+- (UIViewController *)viewController;
+
+@end

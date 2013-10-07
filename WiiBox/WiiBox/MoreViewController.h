@@ -10,6 +10,10 @@
 #import "BaseViewController.h"
 
 @interface MoreViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    @private
+    NSArray *_data;
+}
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 

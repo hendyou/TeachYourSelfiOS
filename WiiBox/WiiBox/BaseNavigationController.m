@@ -30,6 +30,11 @@
 	// Do any additional setup after loading the view.
     [self loadThemeImage];
     
+    UISwipeGestureRecognizer *swipGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipAction:)];
+    swipGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipGesture];
+    [swipGesture release];
+    
 }
 
 - (void)dealloc
@@ -42,6 +47,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions
+- (void)swipAction:(UISwipeGestureRecognizer *)gesture
+{
+    if (self.viewControllers.count > 1) {
+        CGPoint point = [gesture locationInView:self.view];
+        if (point.x < 30) {
+            [self popViewControllerAnimated:YES];
+        }
+    }
 }
 
 - (void)themeChangedNotification:(NSNotification *)notification

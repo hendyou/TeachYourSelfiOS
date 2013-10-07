@@ -13,6 +13,7 @@
 #define kRefreshUnreadCountInterval 60
 
 @class ThemeImageView;
+@class HomeViewController;
 
 @interface MainViewController : UITabBarController <SinaWeiboDelegate,UINavigationControllerDelegate>
 {
@@ -20,6 +21,8 @@
     float _sliderOffX;
     ThemeImageView *_badgeView;
     UILabel *_badgeLabel;
+    
+    HomeViewController *_homeViewController;
 }
 
 @property (nonatomic, retain) UIView *tabBarView;

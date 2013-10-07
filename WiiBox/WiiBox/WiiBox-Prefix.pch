@@ -17,6 +17,7 @@
 #import "WXHLGlobalUICommon.h"
 #import "Utils.h"
 #import "UIViewExt.h"
+#import "CONSTANTS.h"
 
 //设备物理高度
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
