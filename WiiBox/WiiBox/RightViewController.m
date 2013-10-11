@@ -7,6 +7,10 @@
 //
 
 #import "RightViewController.h"
+#import "NewWeiboViewController.h"
+#import "BaseNavigationController.h"
+#import "AppDelegate.h"
+#import "DDMenuController.h"
 
 @interface RightViewController ()
 
@@ -35,4 +39,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Actions
+- (IBAction)newWeibo:(UIButton *)sender {
+    NewWeiboViewController *newWeiboCtrl = [[NewWeiboViewController alloc] init];
+    BaseNavigationController *naviCtrl = [[BaseNavigationController alloc] initWithRootViewController:newWeiboCtrl];
+    [self.appDelegate.menu presentViewController:naviCtrl animated:YES completion:nil];
+    
+    [newWeiboCtrl release];
+    [naviCtrl release];
+}
 @end

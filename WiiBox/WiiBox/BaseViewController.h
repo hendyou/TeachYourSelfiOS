@@ -12,6 +12,11 @@
 @class AppDelegate;
 
 @interface BaseViewController : UIViewController
+{
+    NSMutableArray *_requestArray;
+}
+
+@property (assign, nonatomic) BOOL hiddenTabBar;
 
 - (SinaWeibo *)sinaweibo;
 - (AppDelegate *)appDelegate;

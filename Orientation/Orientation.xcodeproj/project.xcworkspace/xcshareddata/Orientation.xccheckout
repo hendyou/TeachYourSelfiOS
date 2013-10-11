@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>612CB548-CBE0-44AF-B145-308B7D6EA09E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Orientation</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C45536A9-43E7-425B-82FC-179E602E181E</key>
+		<string>https://github.com/hendyou/TeachYourSelfiOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Orientation/Orientation.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C45536A9-43E7-425B-82FC-179E602E181E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hendyou/TeachYourSelfiOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C45536A9-43E7-425B-82FC-179E602E181E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C45536A9-43E7-425B-82FC-179E602E181E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TeachYourSelfiOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

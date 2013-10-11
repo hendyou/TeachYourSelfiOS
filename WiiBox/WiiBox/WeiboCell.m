@@ -39,13 +39,9 @@
 
 - (void)initViews
 {
-    _userImage = [[UIImageView alloc] initWithFrame:CGRectZero];
+    //头像
+    _userImage = [[HeaderImageView alloc] initWithFrame:CGRectZero];
     _userImage.backgroundColor = [UIColor clearColor];
-    //圆角
-    _userImage.layer.cornerRadius = 5;
-    _userImage.layer.borderWidth = 0.5;
-    _userImage.layer.borderColor = [UIColor grayColor].CGColor;
-    _userImage.layer.masksToBounds = YES;
     [self.contentView addSubview:_userImage];
     
     //用户名
@@ -99,7 +95,8 @@
     
     //用户头像
     _userImage.frame = CGRectMake(5, 5, 35, 35);
-    [_userImage setImageWithURL:[NSURL URLWithString:_weiboModel.user.profile_image_url]];
+    _userImage.imageUrl = _weiboModel.user.profile_image_url;
+    _userImage.userName = _weiboModel.user.screen_name;
     
     //用户名称
     _userName.frame = CGRectMake(50, 5, 200, 20);

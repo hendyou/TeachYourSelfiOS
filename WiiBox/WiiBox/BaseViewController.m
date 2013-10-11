@@ -11,11 +11,8 @@
 #import "AppDelegate.h"
 #import "UIFactory.h"
 #import "ThemeManager.h"
-
-
-@interface BaseViewController ()
-
-@end
+#import "SinaWeiboRequest.h"
+#import "MainViewController.h"
 
 @implementation BaseViewController
 
@@ -24,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.hiddenTabBar = YES;
     }
     return self;
 }
@@ -32,6 +30,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    _requestArray = [[NSMutableArray alloc] initWithCapacity:0];
     
     NSArray *viewControllers = self.navigationController.viewControllers;
     if (viewControllers.count > 1) {
@@ -57,11 +57,25 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    if (self.tabBarController != nil && self.navigationController.viewControllers.count > 1) {
+    if (WXHLOSVersion() >= 7.0 && self.hiddenTabBar && self.tabBarController != nil && self.navigationController.viewControllers.count > 1) {
         self.view.height += self.tabBarController.tabBar.height;
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    for (SinaWeiboRequest *request in _requestArray) {
+        [request disconnect];
     }
 }
 
@@ -91,10 +105,9 @@
     self.navigationItem.titleView = titleLabel;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc{
+    [_requestArray release];
+    [super dealloc];
 }
 
 #pragma mark - On click

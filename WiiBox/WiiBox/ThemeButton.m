@@ -58,11 +58,21 @@
     UIImage *image = [themeManager themeImage:self.imageName];
     UIImage *highlightedImage = [themeManager themeImage:self.highlightImageName];
     
+    image = [image resizableImageWithCapInsets:self.insets];
+    highlightedImage = [highlightedImage resizableImageWithCapInsets:self.insets];
+    
     [self setImage:image forState:UIControlStateNormal];
     [self setImage:highlightedImage forState:UIControlStateHighlighted];
     
-    [self setBackgroundImage:[themeManager themeImage:self.backgroundImageName] forState:UIControlStateNormal];
-    [self setBackgroundImage:[themeManager themeImage:self.backgroundHighlightImageName] forState:UIControlStateHighlighted];
+    
+    UIImage *background = [themeManager themeImage:self.backgroundImageName];
+    UIImage *backgroundHighlighted = [themeManager themeImage:self.backgroundHighlightImageName];
+    
+    background = [background resizableImageWithCapInsets:self.insets];
+    backgroundHighlighted = [backgroundHighlighted resizableImageWithCapInsets:self.insets];
+    
+    [self setBackgroundImage:background forState:UIControlStateNormal];
+    [self setBackgroundImage:backgroundHighlighted forState:UIControlStateHighlighted];
 }
 
 - (void)setImageName:(NSString *)imageName
@@ -103,6 +113,12 @@
         ThemeManager *themeManager = [ThemeManager shareThemeManager];
         [self setBackgroundImage:[themeManager themeImage:self.backgroundHighlightImageName] forState:UIControlStateHighlighted];
     }
+}
+
+- (void)setInsets:(UIEdgeInsets)insets
+{
+    _insets = insets;
+    [self loadThemeImage];
 }
 
 @end

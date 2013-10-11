@@ -68,13 +68,17 @@
     UIView *_tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     
     //用户信息栏
-    [self.userHeaderView setImageWithURL:[NSURL URLWithString:self.weiboModel.user.profile_image_url]];
-    self.userHeaderView.contentMode = UIViewContentModeScaleAspectFill;
-    self.userHeaderView.clipsToBounds = YES;
-    [ImageUtil fillet:self.userHeaderView];
+    self.userHeaderView.imageUrl = self.weiboModel.user.profile_image_url;
+    self.userHeaderView.userName = self.weiboModel.user.screen_name;
+    
     self.userNameLabel.text = self.weiboModel.user.screen_name;
     [self.userNameLabel sizeToFit];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToUserPage:)];
+    [_userInfoBar addGestureRecognizer:tap];
+    
     [_tableHeaderView addSubview:_userInfoBar];
+    
     
     //微博视图
     _weiboView = [[WeiboView alloc] initWithFrame:CGRectZero];
@@ -92,8 +96,15 @@
     _tableView = [[CommentTableView alloc] initWithFrame:CGRectZero];
     _tableView.eventDelegate = self;
     _tableView.tableHeaderView = _tableHeaderView;
+    _tableView.enableRefreshHeader = NO;
     [_tableHeaderView release];
     [self.view addSubview:_tableView];
+}
+
+#pragma mark - Actions
+- (void)goToUserPage:(UITapGestureRecognizer *)tap
+{
+    [_userHeaderView goToUser];
 }
 
 #pragma mark - Load data
@@ -105,9 +116,10 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[self.weiboModel.id stringValue] forKey:@"id"];
     [params setObject:[NSString stringWithFormat:@"%d", kLoadCount] forKey:@"count"];
-    [self.sinaweibo requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" finished:^(id result) {
+    SinaWeiboRequest *request = [self.sinaweibo requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" finished:^(id result) {
         [self loadDataFinished:result];
     }];
+    [_requestArray addObject:request];
 }
 
 - (void)loadDataFinished:(NSDictionary *)result
@@ -125,6 +137,8 @@
         self.lastId = [[_tableView.data.lastObject id] stringValue];
         _tableView.commentDic = result;
         [_tableView reloadData];
+    } else {
+        [_tableView enableLoadingMore:NO];
     }
     
 }
@@ -138,9 +152,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[self.weiboModel.id stringValue] forKey:@"id"];
     [params setObject:[NSString stringWithFormat:@"%d", kLoadCount+1] forKey:@"count"];
     [params setObject:self.lastId forKey:@"max_id"];
-    [self.sinaweibo requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" finished:^(id result) {
+    SinaWeiboRequest *request = [self.sinaweibo requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" finished:^(id result) {
         [self pullUpLoadDataFinished:result];
     }];
+    [_requestArray addObject:request];
 }
 
 - (void)pullUpLoadDataFinished:(NSDictionary *)result

@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     _userInfoView = [[UserInfoView alloc] init];
 
     self.tableView.tableHeaderView = _userInfoView;
@@ -64,9 +65,10 @@
     if (!NSStringIsEmpty(self.userName)) {
         NSString *url = @"users/show.json";
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:self.userName  forKey:@"screen_name"];
-        [self.sinaweibo requestWithURL:url params:params httpMethod:@"GET" finished:^(id result) {
+        SinaWeiboRequest *request = [self.sinaweibo requestWithURL:url params:params httpMethod:@"GET" finished:^(id result) {
             [self finishedUserData:result];
         }];
+        [_requestArray addObject:request];
     }
 }
 
@@ -79,16 +81,18 @@
 
 - (void)loadWeiboData
 {
-    if (NSStringIsEmpty(_userName)) {
-        return;
-    }
-    
-    NSString *url = @"statuses/home_timeline.json";
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"%d", kLoadCount]  forKey:@"count"];
-//    [params setObject:_userName forKey:@"screen_name"];
-    [self.sinaweibo requestWithURL:url params:params httpMethod:@"GET" finished:^(id result) {
-        [self finishedWeiboData:result];
-    }];
+    [_tableView loadData:nil];
+//    if (NSStringIsEmpty(_userName)) {
+//        return;
+//    }
+//    
+//    NSString *url = @"statuses/home_timeline.json";
+//    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"%d", kLoadCount]  forKey:@"count"];
+////    [params setObject:_userName forKey:@"screen_name"];
+//    SinaWeiboRequest *request = [self.sinaweibo requestWithURL:url params:params httpMethod:@"GET" finished:^(id result) {
+//        [self finishedWeiboData:result];
+//    }];
+//    [_requestArray addObject:request];
 }
 
 - (void)finishedWeiboData:(NSDictionary *)result

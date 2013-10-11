@@ -9,11 +9,11 @@
 
 #import "BaseViewController.h"
 #import "BaseTableView.h"
+#import "WeiboTableView.h"
 
-@class WeiboTableView;
 @class ThemeImageView;
 
-@interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate, UITableViewEventDelegate>
+@interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate,WeiboTableViewDelegate>
 {
     WeiboTableView *_tableView;
     ThemeImageView *_weiboCountView;

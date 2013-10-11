@@ -95,7 +95,7 @@
     return YES;
 }
 
-#pragma mark - orientation BEFORE 6.0
+#pragma mark - orientation AFTER 6.0
 - (BOOL)shouldAutorotate
 {
     return YES;

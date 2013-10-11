@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "HeaderImageView.h"
+
 @class WeiboModel;
 @class WeiboView;
 
 @interface WeiboCell : UITableViewCell
 {
     @private
-    UIImageView *_userImage;    //用户头像
+    HeaderImageView *_userImage;    //用户头像
     UILabel *_userName;  //用户名称
     UILabel *_repostCount;    //转发数
     UILabel *_commentCount;  //评论数

@@ -23,6 +23,18 @@
     return [button autorelease];
 }
 
++ (ThemeButton *)createBarButtonItemWithFrame:(CGRect)frame title:(NSString *)title target:(id)target action:(SEL)action
+{
+    ThemeButton *button = [UIFactory createButton:@"navigationbar_button_background.png" highlightedBackground:nil];
+    button.frame = frame;
+    [button setTitle:title forState:UIControlStateNormal];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.insets = UIEdgeInsetsMake(4, 5, 4, 5);
+    button.titleLabel.font = [UIFont systemFontOfSize:14];
+    return [button autorelease];
+}
+
 + (ThemeImageView *)createImageView:(NSString *)imageName
 {
     ThemeImageView *imageView = [[ThemeImageView alloc] initWithImageName:imageName];

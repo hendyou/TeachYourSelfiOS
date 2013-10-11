@@ -17,6 +17,8 @@
 
 + (ThemeButton *)createButton:(NSString *)background highlightedBackground:(NSString *)highlightedBackground;
 
++ (ThemeButton *)createBarButtonItemWithFrame:(CGRect)frame title:(NSString *)title target:(id)target action:(SEL)action;
+
 + (ThemeImageView *)createImageView:(NSString *)imageName;
 
 + (ThemeLabel *)createLabel:(NSString *)fontColorName;

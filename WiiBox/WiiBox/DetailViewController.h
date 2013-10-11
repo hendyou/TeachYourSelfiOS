@@ -10,6 +10,7 @@
 
 #import "WeiboModel.h"
 #import "CommentTableView.h"
+#import "HeaderImageView.h"
 
 @class WeiboView;
 
@@ -25,7 +26,7 @@
 @property (copy, nonatomic) NSString *lastId;
 
 @property (retain, nonatomic) IBOutlet UIView *userInfoBar;
-@property (retain, nonatomic) IBOutlet UIImageView *userHeaderView;
+@property (retain, nonatomic) IBOutlet HeaderImageView *userHeaderView;
 @property (retain, nonatomic) IBOutlet UILabel *userNameLabel;
 
 @end

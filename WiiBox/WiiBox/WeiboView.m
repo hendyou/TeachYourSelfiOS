@@ -13,6 +13,7 @@
 #import "RegexKitLite.h"
 #import "NSString+URLEncoding.h"
 #import "UserViewController.h"
+#import "WebViewController.h"
 
 #define ListFont 14.0f
 #define ListRepostFont 12.5f
@@ -333,6 +334,9 @@
         [viewCtrl release];
     } else if ([absoluteString hasPrefix:@"http"]) {
         NSLog(@"%@", absoluteString);
+        WebViewController *webViewCtrl = [[WebViewController alloc] initWithUrl:absoluteString];
+        [self.viewController.navigationController pushViewController:webViewCtrl animated:YES];
+        [webViewCtrl release];
     } else if ([absoluteString hasPrefix:@"topic"]) {
         NSString *host = [[url host] URLDecodedString];
         NSLog(@"话题: %@", host);

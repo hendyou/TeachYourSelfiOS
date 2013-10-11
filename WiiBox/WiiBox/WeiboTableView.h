@@ -8,8 +8,35 @@
 
 #import "BaseTableView.h"
 
-@interface WeiboTableView : BaseTableView
+@class WeiboModel;
 
+typedef void (^FinishedLoading)(NSArray *weibos);
+
+@protocol WeiboTableViewDelegate <NSObject>
+
+@optional
+- (void)pullDownFinished:(NSArray *)weibos;
+
+- (void)pullUpFinished:(NSArray *)weibos;
+
+@end
+
+@interface WeiboTableView : BaseTableView<UITableViewEventDelegate>
+{
+    @private
+    FinishedLoading _block;
+}
+
+@property (assign, nonatomic) int loadCount;
+
+@property (copy, nonatomic) NSString *topId;
+@property (copy, nonatomic) NSString *lastId;
+
+@property (assign, nonatomic) id<WeiboTableViewDelegate> weiboDelegate;
+
+- (void)loadData:(FinishedLoading) finishedBlock;
+
+- (void)pullDownLoading;
 
 
 @end

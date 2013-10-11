@@ -49,6 +49,11 @@
     [NSTimer scheduledTimerWithTimeInterval:kRefreshUnreadCountInterval target:self selector:@selector(requestUnreadCount) userInfo:nil repeats:YES];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -86,6 +91,7 @@
             _tabBarView.left = -ScreenWidth;
         }
     }];
+    
 }
 
 - (void)showIndicator:(NSString *)title

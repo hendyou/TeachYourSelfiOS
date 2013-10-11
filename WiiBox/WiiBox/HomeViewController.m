@@ -8,7 +8,6 @@
 
 #import "HomeViewController.h"
 #import "WeiboModel.h"
-#import "WeiboTableView.h"
 #import "UIFactory.h"
 #import "AttentionUtil.h"
 #import "MainViewController.h"
@@ -58,7 +57,7 @@
     //Table view
     _tableView = [[WeiboTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
-    _tableView.eventDelegate = self;
+    _tableView.weiboDelegate = self;
     _tableView.enableRefreshHeader = YES;
     
     if (self.sinaweibo.isAuthValid) {
@@ -93,8 +92,7 @@
 #pragma mark - Public methods
 - (void)initLoading
 {
-    [_tableView initLoading];
-    [self pullDownData];
+    [_tableView pullDownLoading];
 }
 
 #pragma mark - UI
@@ -136,161 +134,33 @@
 #pragma mark - load data
 - (void)loadData
 {
-    NSString *url = @"statuses/home_timeline.json";
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"%d", kLoadCount]  forKey:@"count"];
-    [self.sinaweibo requestWithURL:url params:params httpMethod:@"GET" delegate:self];
-    
     //显示loading提示
     MainViewController *main = (MainViewController *)self.tabBarController;
     [main showIndicator:@"正在读取数据..."];
     _tableView.hidden = YES;
+
+    [_tableView loadData:^(NSArray *weibos) {
+        //关闭loading提示
+        MainViewController *main = (MainViewController *)self.tabBarController;
+        [main hideIndicator:0];
+        _tableView.hidden = NO;
+    }];
+    
 }
 
-- (void) pullDownData
+#pragma mark - WeiboTableViewDelegate
+- (void)pullDownFinished:(NSArray *)weibos
 {
-    if (self.topId == nil) {
-        return;
-    }
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   [NSString stringWithFormat:@"%d", kLoadCount], @"count",
-                                   self.topId, @"since_id",
-                                   nil];
-    [self.sinaweibo requestWithURL:@"statuses/home_timeline.json"
-                            params:params
-                        httpMethod:@"GET"
-                          finished:^(id result) {
-                              [self pullDownDataFinished:result];
-                          }];
-}
-
-- (void) pullDownDataFinished:(id) result
-{
-    NSArray *statues = [result objectForKey:@"statuses"];
-    NSMutableArray *weibos = [NSMutableArray arrayWithCapacity:statues.count];
-    for (NSDictionary *statuesDic in statues) {
-        WeiboModel *weibo = [[WeiboModel alloc] initWithDataDic:statuesDic];
-        [weibos addObject:weibo];
-        [weibo release];
-    }
-    
-    int updateCount = weibos.count;
-    if (weibos.count > 0) {
-        [weibos addObjectsFromArray:_tableView.data];
-        
-        _tableView.data = weibos;
-        
-        self.topId = [[weibos[0] id] stringValue];
-        
-        [_tableView reloadData];
-    }
-    //隐藏下拉视图
-    [_tableView doneLoadingTableViewData];
-    
-    [self showWeiboCount:updateCount];
-    
-    //更新下拉视图的最后更新日期
-    [_tableView refreshUpdateDate];
+    [self showWeiboCount:weibos.count];
     
     //隐藏TabBar里的未读微博数
     [(MainViewController *)self.tabBarController hideUnreadBadge];
-    
-}
-
-- (void) pullUpData
-{
-    if (self.lastId == nil) {
-        return;
-    }
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   [NSString stringWithFormat:@"%d", kLoadCount+1], @"count",
-                                   self.lastId, @"max_id",
-                                   nil];
-    [self.sinaweibo requestWithURL:@"statuses/home_timeline.json"
-                            params:params
-                        httpMethod:@"GET"
-                          finished:^(id result) {
-                              [self pullUpDataFinished:result];
-                          }];
-}
-
-- (void) pullUpDataFinished:(id) result
-{
-    NSArray *statues = [result objectForKey:@"statuses"];
-    NSMutableArray *weibos = [NSMutableArray arrayWithCapacity:statues.count];
-    for (NSDictionary *statuesDic in statues) {
-        WeiboModel *weibo = [[WeiboModel alloc] initWithDataDic:statuesDic];
-        [weibos addObject:weibo];
-        [weibo release];
-    }
-    
-    //返回ID小于或等于max_id的微博, 包括max_id的微博, 要移除
-    if (weibos.count > 0) {
-        [weibos removeObjectAtIndex:0];
-    }
-
-    if (weibos.count > 0) {
-        
-        [_tableView.data addObjectsFromArray:weibos];
-        
-        self.lastId = [[weibos.lastObject id] stringValue];
-        
-        [_tableView reloadData];
-    }
-    //标记数据加载完成
-    [_tableView finishMoreLoading];
-    
-    if (weibos.count < kLoadCount) {
-        _tableView.isMore = NO;
-    }
 }
 
 #pragma mark - SinaWeiboRequestDelegate
 - (void)request:(SinaWeiboRequest *)request didFailWithError:(NSError *)error
 {
     NSLog(@"登陆失败");
-}
-- (void)request:(SinaWeiboRequest *)request didFinishLoadingWithResult:(id)result
-{
-    NSArray *statuses = result[@"statuses"];
-    NSMutableArray *weiboArray = [NSMutableArray arrayWithCapacity:statuses.count];
-    for (NSDictionary *weiboDic in statuses) {
-        WeiboModel *weibo = [[WeiboModel alloc] initWithDataDic:weiboDic];
-        [weiboArray addObject:weibo];
-        [weibo release];
-    }
-    
-    if (weiboArray.count > 0) {
-        self.topId = [[weiboArray[0] id] stringValue];
-        self.lastId = [[weiboArray.lastObject id] stringValue];
-    }
-    
-    _tableView.data = weiboArray;
-    
-    //更新下拉视图的最后更新日期
-    [_tableView refreshUpdateDate];
-    
-    [_tableView reloadData];
-    
-    //关闭loading提示
-    MainViewController *main = (MainViewController *)self.tabBarController;
-    [main hideIndicator:0];
-    _tableView.hidden = NO;
-}
-
-#pragma mark - BaseTableView event delegate
-- (void)pullDown:(BaseTableView *)tableView
-{
-//    NSLog(@"----------请求网络数据");
-//    [_tableView performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
-    
-    [self pullDownData];
-}
-
-- (void)pullUp:(BaseTableView *)tableView
-{
-    [self pullUpData];
 }
 
 #pragma mark - actions

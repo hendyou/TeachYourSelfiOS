@@ -10,4 +10,5 @@
 
 @interface RightViewController : BaseViewController
 
+- (IBAction)newWeibo:(UIButton *)sender;
 @end

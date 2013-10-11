@@ -16,6 +16,8 @@
 @property (nonatomic, copy) NSString *backgroundImageName;
 @property (nonatomic, copy) NSString *backgroundHighlightImageName;
 
+@property (assign, nonatomic) UIEdgeInsets insets;
+
 - (id)initWithImage:(NSString *)imageName highlightedImage:(NSString *)highlightedImage;
 
 - (id)initwithBackground:(NSString *)background highlightedBackground:(NSString *)highlightedBackground;

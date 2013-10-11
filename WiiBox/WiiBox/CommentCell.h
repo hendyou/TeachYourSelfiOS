@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CommentModel.h"
 #import "RTLabel.h"
+#import "HeaderImageView.h"
 
 @interface CommentCell : UITableViewCell<RTLabelDelegate>
 {
@@ -21,7 +22,7 @@
 
 @property (retain, nonatomic) CommentModel *commentModel;
 
-@property (retain, nonatomic) IBOutlet UIImageView *userHeaderView;
+@property (retain, nonatomic) IBOutlet HeaderImageView *userHeaderView;
 @property (retain, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (retain, nonatomic) IBOutlet UILabel *timeLabel;
 

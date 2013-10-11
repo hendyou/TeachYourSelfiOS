@@ -15,8 +15,6 @@
     self = [super initWithFrame:frame style:style];
     if (self) {
         // Initialization code
-        _data = [[NSMutableArray array] retain];
-        self.isMore = YES;
         [self initViews];
     }
     return self;
@@ -30,10 +28,14 @@
 
 - (void)initViews
 {
+    _data = [[NSMutableArray array] retain];
+    self.isMore = YES;
+    
     self.dataSource = self;
     self.delegate = self;
     
     self.enableRefreshHeader = YES;
+    [self enableLoadingMore:YES];
     
     EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.bounds.size.height, self.frame.size.width, self.bounds.size.height)];
     view.backgroundColor = [UIColor clearColor];
@@ -201,11 +203,6 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (_data.count > 0) {
-        [self enableLoadingMore:YES];
-    } else {
-        [self enableLoadingMore:NO];
-    }
     return _data.count;
 }
 
@@ -224,8 +221,8 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.eventDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
-        [self.eventDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    if ([self.tableViewDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [self.tableViewDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
 }
 

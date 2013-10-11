@@ -14,7 +14,12 @@
 @optional
 - (void)pullDown:(BaseTableView *)tableView;
 - (void)pullUp:(BaseTableView *)tableView;
+@end
+
+@protocol TableViewDelegate <NSObject>
+@optional
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @interface BaseTableView : UITableView<EGORefreshTableHeaderDelegate,UITableViewDataSource, UITableViewDelegate>
@@ -31,6 +36,7 @@
 @property (assign, nonatomic) BOOL enableRefreshHeader;
 
 @property (assign, nonatomic) id<UITableViewEventDelegate> eventDelegate;
+@property (assign, nonatomic) id<TableViewDelegate> tableViewDelegate;
 
 @property (assign, nonatomic) BOOL isMore;
 

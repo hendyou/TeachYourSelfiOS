@@ -68,6 +68,11 @@
     [super didReceiveMemoryWarning];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return [_root preferredStatusBarStyle];
+}
+
 
 #pragma mark - View lifecycle
 

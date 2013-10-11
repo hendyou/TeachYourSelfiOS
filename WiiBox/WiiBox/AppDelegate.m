@@ -31,6 +31,7 @@
 {
     _main = [[MainViewController alloc] init];
     
+    
     LeftViewController *left = [[LeftViewController alloc] init];
     RightViewController *right = [[RightViewController alloc] init];
     

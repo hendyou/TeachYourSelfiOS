@@ -9,7 +9,6 @@
 #import "CommentCell.h"
 #import "RTLabel.h"
 #import "NSString+URLEncoding.h"
-#import "UIImageView+WebCache.h"
 #import "DateUtil.h"
 #import "ImageUtil.h"
 
@@ -28,8 +27,6 @@
 {
     [super awakeFromNib];
     
-    [ImageUtil fillet:_userHeaderView];
-    
     _commentLabel = [[RTLabel alloc] initWithFrame:CGRectZero];
     _commentLabel.delegate = self;
     _commentLabel.font = [UIFont systemFontOfSize:14.0f];
@@ -43,7 +40,8 @@
     [super layoutSubviews];
     
     //头像
-    [_userHeaderView setImageWithURL:[NSURL URLWithString:self.commentModel.user.profile_image_url]];
+    _userHeaderView.imageUrl = self.commentModel.user.profile_image_url;
+    _userHeaderView.userName = self.commentModel.user.screen_name;
     
     //昵称
     _userNameLabel.text = self.commentModel.user.screen_name;
