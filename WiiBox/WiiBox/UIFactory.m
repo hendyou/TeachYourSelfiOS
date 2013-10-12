@@ -30,7 +30,12 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    button.insets = UIEdgeInsetsMake(4, 5, 4, 5);
+    NSString *themeName = [ThemeManager shareThemeManager].themeName;
+    if ([themeName isEqualToString:@"default"]) {
+        button.insets = UIEdgeInsetsMake(4, 5, 4, 5);
+    } else {
+        button.insets = UIEdgeInsetsMake(4, 2, 4, 2);
+    }
     button.titleLabel.font = [UIFont systemFontOfSize:14];
     return [button autorelease];
 }

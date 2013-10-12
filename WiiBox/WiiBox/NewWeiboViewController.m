@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAction:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAction:) name:UIKeyboardWillHideNotification object:nil];
     
     [self initViews];
 }
@@ -50,11 +52,30 @@
     
     self.textView.text = @"新鲜事儿";
     
-    self.textView.scrollEnabled = YES;
-    
     self.textView.alwaysBounceVertical = YES;
     
+    self.textView.scrollsToTop = NO;
+    
     self.textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.textView becomeFirstResponder];
+}
+
+- (void)dealloc {
+    [_menuBar release];
+    [_textView release];
+    [super dealloc];
 }
 
 #pragma mark - Actions
@@ -69,12 +90,27 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)dealloc {
-    [_menuBar release];
-    [_textView release];
-    [super dealloc];
+- (void)keyboardAction:(NSNotification *)notification
+{
+    NSValue *frameValue = notification.userInfo[@"UIKeyboardFrameEndUserInfoKey"];
+    CGRect frame = [frameValue CGRectValue];
+    
+    NSNumber *animDurationNumber = notification.userInfo[@"UIKeyboardAnimationDurationUserInfoKey"];
+    float animDuration = [animDurationNumber floatValue];
+    
+    NSString *notificationName = notification.name;
+    if ([notificationName isEqualToString:UIKeyboardWillShowNotification]) {
+        [UIView animateWithDuration:animDuration animations:^{
+            self.menuBar.bottom = self.view.height - frame.size.height;
+            self.textView.height = self.menuBar.top;
+        }];
+    } else if ([notificationName isEqualToString:UIKeyboardWillHideNotification]) {
+        [UIView animateWithDuration:animDuration animations:^{
+            self.menuBar.bottom = self.view.height;
+            self.textView.height = self.menuBar.top;
+        }];
+    }
 }
 
 #pragma mark - UITextViewDelegate
-
 @end
