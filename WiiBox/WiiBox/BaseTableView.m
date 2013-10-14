@@ -7,6 +7,7 @@
 //
 
 #import "BaseTableView.h"
+#import "SinaWeiboRequest.h"
 
 @implementation BaseTableView
 
@@ -28,6 +29,8 @@
 
 - (void)initViews
 {
+    _requestArray = [[NSMutableArray alloc] initWithCapacity:0];
+    
     _data = [[NSMutableArray array] retain];
     self.isMore = YES;
     
@@ -67,6 +70,11 @@
     [_refreshHeaderView release];
     [_moreBtn release];
     [_indicator release];
+    
+    for (SinaWeiboRequest *request in _requestArray) {
+        [request disconnect];
+    }
+    [_requestArray release];
     [super dealloc];
 }
 

@@ -145,7 +145,7 @@
 {
     NSString *url = @"statuses/home_timeline.json";
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:[NSString stringWithFormat:@"%d", _loadCount]  forKey:@"count"];
-    [self.sinaweibo requestWithURL:url params:params httpMethod:@"GET" finished:^(id result) {
+    SinaWeiboRequest *request = [self.sinaweibo requestWithURL:url params:params httpMethod:@"GET" finished:^(id result) {
         NSArray *statuses = result[@"statuses"];
         NSMutableArray *weiboArray = [NSMutableArray arrayWithCapacity:statuses.count];
         for (NSDictionary *weiboDic in statuses) {
@@ -169,6 +169,7 @@
         [self excuteBlock:weiboArray];
     }];
     
+    [_requestArray addObject:request];
 }
 
 - (void) pullDownData
@@ -181,12 +182,14 @@
                                    [NSString stringWithFormat:@"%d", _loadCount], @"count",
                                    self.topId, @"since_id",
                                    nil];
-    [self.sinaweibo requestWithURL:@"statuses/home_timeline.json"
+    SinaWeiboRequest *request = [self.sinaweibo requestWithURL:@"statuses/home_timeline.json"
                             params:params
                         httpMethod:@"GET"
                           finished:^(id result) {
                               [self pullDownDataFinished:result];
                           }];
+    
+    [_requestArray addObject:request];
 }
 
 - (void) pullDownDataFinished:(id) result
@@ -229,12 +232,14 @@
                                    [NSString stringWithFormat:@"%d", _loadCount+1], @"count",
                                    self.lastId, @"max_id",
                                    nil];
-    [self.sinaweibo requestWithURL:@"statuses/home_timeline.json"
+    SinaWeiboRequest *request = [self.sinaweibo requestWithURL:@"statuses/home_timeline.json"
                             params:params
                         httpMethod:@"GET"
                           finished:^(id result) {
                               [self pullUpDataFinished:result];
                           }];
+    
+    [_requestArray addObject:request];
 }
 
 - (void) pullUpDataFinished:(id) result

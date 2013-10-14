@@ -28,6 +28,8 @@
     UIActivityIndicatorView *_indicator;
     UIButton *_moreBtn;
     BOOL _reloading;
+    
+    NSMutableArray *_requestArray;
 }
 
 @property (retain, nonatomic) NSMutableArray *data;

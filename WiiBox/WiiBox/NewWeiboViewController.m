@@ -9,6 +9,9 @@
 #import "NewWeiboViewController.h"
 #import "UIFactory.h"
 
+#define kMenuBtnWidth 23
+#define kMenuBtnHeight 20
+
 @interface NewWeiboViewController ()
 
 @end
@@ -21,6 +24,7 @@
     if (self) {
         // Custom initialization
         self.title = @"新微博";
+        _menuBtns = [[NSMutableArray alloc] initWithCapacity:5];
     }
     return self;
 }
@@ -33,6 +37,40 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAction:) name:UIKeyboardWillHideNotification object:nil];
     
     [self initViews];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.textView becomeFirstResponder];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    float offX = (_menuBar.width / 5 - kMenuBtnWidth) / 2;
+    for (int i = 0; i < _menuBtns.count; i++) {
+        UIButton *btn = _menuBtns[i];
+        if (i == 5) {
+            btn.left = offX + (kMenuBtnWidth + 2 * offX) * 4;
+            btn.hidden = YES;
+        } else {
+            btn.left = offX + (kMenuBtnWidth + 2 * offX) * i;
+        }
+    }
+}
+
+- (void)dealloc {
+    [_menuBtns release];
+    [_menuBar release];
+    [_textView release];
+    [super dealloc];
 }
 
 #pragma mark - UI
@@ -50,32 +88,33 @@
     self.navigationItem.rightBarButtonItem = sendItem;
     [sendItem release];
     
-    self.textView.text = @"新鲜事儿";
-    
-    self.textView.alwaysBounceVertical = YES;
-    
-    self.textView.scrollsToTop = NO;
-    
-    self.textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    
+    [self initMenuBar];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)initMenuBar
 {
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.textView becomeFirstResponder];
-}
-
-- (void)dealloc {
-    [_menuBar release];
-    [_textView release];
-    [super dealloc];
+    NSArray *imgNames = @[@"compose_locatebutton_background.png",
+                          @"compose_camerabutton_background.png",
+                          @"compose_trendbutton_background.png",
+                          @"compose_mentionbutton_background.png",
+                          @"compose_emoticonbutton_background.png",
+                          @"compose_keyboardbutton_background.png"];
+    
+    NSArray *highlightedNames = @[@"compose_locatebutton_background_highlighted.png",
+          @"compose_camerabutton_background_highlighted.png",
+          @"compose_trendbutton_background_highlighted.png",
+          @"compose_mentionbutton_background_highlighted.png",
+          @"compose_emoticonbutton_background_highlighted.png",
+          @"compose_keyboardbutton_background_highlighted.png"];
+    
+    float offY = (_menuBar.height - kMenuBtnHeight) / 2;
+    for (int i = 0; i < imgNames.count; i++) {
+        UIButton *btn = [UIFactory createButton:imgNames[i] highlighted:highlightedNames[i]];
+        [btn setImage:highlightedNames[i] forState:UIControlStateSelected];
+        btn.frame = CGRectMake(0, offY, kMenuBtnWidth, kMenuBtnHeight);
+        [self.menuBar addSubview:btn];
+        [_menuBtns addObject:btn];
+    }
 }
 
 #pragma mark - Actions
@@ -100,11 +139,13 @@
     
     NSString *notificationName = notification.name;
     if ([notificationName isEqualToString:UIKeyboardWillShowNotification]) {
+        _isKeyboardHidden = NO;
         [UIView animateWithDuration:animDuration animations:^{
             self.menuBar.bottom = self.view.height - frame.size.height;
             self.textView.height = self.menuBar.top;
         }];
     } else if ([notificationName isEqualToString:UIKeyboardWillHideNotification]) {
+        _isKeyboardHidden = YES;
         [UIView animateWithDuration:animDuration animations:^{
             self.menuBar.bottom = self.view.height;
             self.textView.height = self.menuBar.top;

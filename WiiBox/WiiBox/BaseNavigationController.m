@@ -47,10 +47,10 @@
 - (void)swipAction:(UISwipeGestureRecognizer *)gesture
 {
     if (self.viewControllers.count > 1) {
-        CGPoint point = [gesture locationInView:self.view];
-        if (point.x < 30) {
-            [self popViewControllerAnimated:YES];
-        }
+//        CGPoint point = [gesture locationInView:self.view];
+//        if (point.x < 30) {
+        [self popViewControllerAnimated:YES];
+//        }
     }
 }
 
