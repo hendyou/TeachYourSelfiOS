@@ -14,6 +14,8 @@
 #import "NSString+URLEncoding.h"
 #import "UserViewController.h"
 #import "WebViewController.h"
+#import "ImageViewController.h"
+#import "AppDelegate.h"
 
 #define ListFont 14.0f
 #define ListRepostFont 12.5f
@@ -67,6 +69,11 @@
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
     _imageView.clipsToBounds = YES;
     [self addSubview:_imageView];
+    //添加点击浏览图片
+    UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTap:)];
+    imageTap.numberOfTapsRequired = 1;
+    _imageView.userInteractionEnabled = YES;
+    [_imageView addGestureRecognizer:imageTap];
     
 }
 
@@ -315,6 +322,20 @@
     }
     
     return fontSize;
+}
+
+#pragma mark - Actions
+- (void)imageTap:(UITapGestureRecognizer *)gesture
+{
+    ImageViewController *imageCtrl = [[ImageViewController alloc] init];
+    imageCtrl.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    UIImageView *imageView = (UIImageView *)gesture.view;
+    imageCtrl.startImage = imageView.image;
+    imageCtrl.imageUrl = _weiboModel.originalPic;
+    
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [app.menu presentViewController:imageCtrl animated:YES completion:nil];
+    [imageCtrl release];
 }
 
 #pragma mark - RTLabelDelegate

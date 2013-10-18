@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "ImageViewController.h"
 
 @implementation AppDelegate
 
@@ -25,7 +26,11 @@
     [self.window makeKeyAndVisible];
     
     
-    RootViewController *rootViewController = [[RootViewController alloc] init];
+//    RootViewController *rootViewController = [[RootViewController alloc] init];
+//    self.window.rootViewController = rootViewController;
+//    [rootViewController release];
+    
+    ImageViewController *rootViewController = [[ImageViewController alloc] init];
     self.window.rootViewController = rootViewController;
     [rootViewController release];
     

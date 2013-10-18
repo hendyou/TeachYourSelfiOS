@@ -28,9 +28,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    
+    NSLog(@"%@", NSStringFromCGRect(bounds));
+    
+    scrollView = [[UIScrollView alloc] initWithFrame:bounds];
+    scrollView.autoresizingMask =
+          UIViewAutoresizingFlexibleLeftMargin
+        | UIViewAutoresizingFlexibleRightMargin
+        | UIViewAutoresizingFlexibleTopMargin
+        | UIViewAutoresizingFlexibleBottomMargin
+        | UIViewAutoresizingFlexibleWidth
+        | UIViewAutoresizingFlexibleHeight;
+    
     //设置内容大小
-    scrollView.contentSize = CGSizeMake(320, 460);
+//    scrollView.contentSize = CGSizeMake(320, 460);
     
     scrollView.minimumZoomScale = 1;
     scrollView.maximumZoomScale = 3;
@@ -41,7 +53,15 @@
     
     [self.view addSubview:scrollView];
     
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+    imageView = [[UIImageView alloc] initWithFrame:bounds];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.autoresizingMask =
+    UIViewAutoresizingFlexibleLeftMargin
+    | UIViewAutoresizingFlexibleRightMargin
+    | UIViewAutoresizingFlexibleTopMargin
+    | UIViewAutoresizingFlexibleBottomMargin
+    | UIViewAutoresizingFlexibleWidth
+    | UIViewAutoresizingFlexibleHeight;
     imageView.image = [UIImage imageNamed:@"sexy.jpg"];
     
     [scrollView addSubview:imageView];
@@ -79,6 +99,15 @@
     [scrollView release];
     [imageView release];
     [super dealloc];
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+//    [UIView animateWithDuration:duration animations:^{
+//        imageView.image = imageView.image;
+//    }];
 }
 
 - (void)didReceiveMemoryWarning

@@ -18,6 +18,8 @@
 		B3D38B5D17D63D2E00C9F05D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D38B5C17D63D2E00C9F05D /* Default@2x.png */; };
 		B3D38B5F17D63D2E00C9F05D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D38B5E17D63D2E00C9F05D /* Default-568h@2x.png */; };
 		B3D38B6717D63D5B00C9F05D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D38B6617D63D5B00C9F05D /* RootViewController.m */; };
+		B3F94B18180EC7810074F240 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F94B16180EC7810074F240 /* ImageViewController.m */; };
+		B3F94B19180EC7810074F240 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F94B17180EC7810074F240 /* ImageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		B3D38B5E17D63D2E00C9F05D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B3D38B6517D63D5B00C9F05D /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		B3D38B6617D63D5B00C9F05D /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		B3F94B15180EC7810074F240 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		B3F94B16180EC7810074F240 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		B3F94B17180EC7810074F240 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,9 @@
 				B3D38B5817D63D2E00C9F05D /* AppDelegate.m */,
 				B3D38B6517D63D5B00C9F05D /* RootViewController.h */,
 				B3D38B6617D63D5B00C9F05D /* RootViewController.m */,
+				B3F94B15180EC7810074F240 /* ImageViewController.h */,
+				B3F94B16180EC7810074F240 /* ImageViewController.m */,
+				B3F94B17180EC7810074F240 /* ImageViewController.xib */,
 				B3D38B4F17D63D2E00C9F05D /* Supporting Files */,
 			);
 			name = ScrollViewZoom;
@@ -163,6 +171,7 @@
 				B3D38B5B17D63D2E00C9F05D /* Default.png in Resources */,
 				B3D38B5D17D63D2E00C9F05D /* Default@2x.png in Resources */,
 				B3D38B5F17D63D2E00C9F05D /* Default-568h@2x.png in Resources */,
+				B3F94B19180EC7810074F240 /* ImageViewController.xib in Resources */,
 				B358FDF717D6E5F4003D7E41 /* sexy.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +185,7 @@
 			files = (
 				B3D38B5517D63D2E00C9F05D /* main.m in Sources */,
 				B3D38B5917D63D2E00C9F05D /* AppDelegate.m in Sources */,
+				B3F94B18180EC7810074F240 /* ImageViewController.m in Sources */,
 				B3D38B6717D63D5B00C9F05D /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

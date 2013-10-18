@@ -578,6 +578,8 @@
 		B3B5998F17DF58970095BD51 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B5998E17DF58970095BD51 /* MainViewController.m */; };
 		B3B5999217DF58FE0095BD51 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B5999117DF58FE0095BD51 /* BaseViewController.m */; };
 		B3B5999617DF597C0095BD51 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B5999517DF597C0095BD51 /* BaseNavigationController.m */; };
+		B3B66CFA180D7FF0006C84F4 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B66CF8180D7FF0006C84F4 /* ImageViewController.m */; };
+		B3B66CFB180D7FF0006C84F4 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B66CF9180D7FF0006C84F4 /* ImageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1220,6 +1222,9 @@
 		B3B5999117DF58FE0095BD51 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B3B5999417DF597C0095BD51 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		B3B5999517DF597C0095BD51 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		B3B66CF7180D7FF0006C84F4 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		B3B66CF8180D7FF0006C84F4 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		B3B66CF9180D7FF0006C84F4 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1447,6 +1452,9 @@
 				B3584FCC18069F7600D3EFB8 /* NewWeiboViewController.h */,
 				B3584FCD18069F7600D3EFB8 /* NewWeiboViewController.m */,
 				B3584FCE18069F7600D3EFB8 /* NewWeiboViewController.xib */,
+				B3B66CF7180D7FF0006C84F4 /* ImageViewController.h */,
+				B3B66CF8180D7FF0006C84F4 /* ImageViewController.m */,
+				B3B66CF9180D7FF0006C84F4 /* ImageViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -2641,6 +2649,7 @@
 				B3584F8818069DE500D3EFB8 /* profile_button3_1.png in Resources */,
 				B3584E5018069DE500D3EFB8 /* 019.png in Resources */,
 				B3584F6E18069DE500D3EFB8 /* navigationbar_comments.png in Resources */,
+				B3B66CFB180D7FF0006C84F4 /* ImageViewController.xib in Resources */,
 				B3584FA618069DE500D3EFB8 /* tabbar_more_highlighted.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2682,6 +2691,7 @@
 				B328CD0517E0688900C70ECD /* JSONKit.m in Sources */,
 				B328CD0717E0688900C70ECD /* SinaWeibo.m in Sources */,
 				B328CD0817E0688900C70ECD /* SinaWeiboAuthorizeView.m in Sources */,
+				B3B66CFA180D7FF0006C84F4 /* ImageViewController.m in Sources */,
 				B37794C317FAAB7500ED562B /* UserViewController.m in Sources */,
 				B328CD0917E0688900C70ECD /* SinaWeiboRequest.m in Sources */,
 				B362618B17E2D60F00D8B421 /* ThemeManager.m in Sources */,
