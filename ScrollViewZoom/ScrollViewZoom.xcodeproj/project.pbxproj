@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B34389FB1814D3BD007552A0 /* sexy2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B34389FA1814D3BD007552A0 /* sexy2.jpg */; };
 		B358FDF717D6E5F4003D7E41 /* sexy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B358FDF617D6E5F4003D7E41 /* sexy.jpg */; };
 		B3D38B4917D63D2E00C9F05D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D38B4817D63D2E00C9F05D /* UIKit.framework */; };
 		B3D38B4B17D63D2E00C9F05D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D38B4A17D63D2E00C9F05D /* Foundation.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B34389FA1814D3BD007552A0 /* sexy2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sexy2.jpg; sourceTree = "<group>"; };
 		B358FDF617D6E5F4003D7E41 /* sexy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sexy.jpg; sourceTree = "<group>"; };
 		B3D38B4517D63D2E00C9F05D /* ScrollViewZoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewZoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D38B4817D63D2E00C9F05D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				B358FDF617D6E5F4003D7E41 /* sexy.jpg */,
+				B34389FA1814D3BD007552A0 /* sexy2.jpg */,
 				B3D38B5717D63D2E00C9F05D /* AppDelegate.h */,
 				B3D38B5817D63D2E00C9F05D /* AppDelegate.m */,
 				B3D38B6517D63D5B00C9F05D /* RootViewController.h */,
@@ -170,6 +173,7 @@
 				B3D38B5317D63D2E00C9F05D /* InfoPlist.strings in Resources */,
 				B3D38B5B17D63D2E00C9F05D /* Default.png in Resources */,
 				B3D38B5D17D63D2E00C9F05D /* Default@2x.png in Resources */,
+				B34389FB1814D3BD007552A0 /* sexy2.jpg in Resources */,
 				B3D38B5F17D63D2E00C9F05D /* Default-568h@2x.png in Resources */,
 				B3F94B19180EC7810074F240 /* ImageViewController.xib in Resources */,
 				B358FDF717D6E5F4003D7E41 /* sexy.jpg in Resources */,

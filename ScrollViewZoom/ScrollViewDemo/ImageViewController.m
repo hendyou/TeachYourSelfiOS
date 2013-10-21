@@ -36,14 +36,8 @@
     
     self.scrollView.delegate = self;
     
-}
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    
     self.imageView.contentMode = UIViewContentModeCenter;
-    UIImage *image = [UIImage imageNamed:@"sexy.jpg"];
+    UIImage *image = [UIImage imageNamed:@"sexy2.jpg"];
     CGRect rect = CGRectZero;
     rect.size = image.size;
     self.imageView.frame = rect;
@@ -58,10 +52,38 @@
         scale = 1.0;
     }
     
-    
     self.scrollView.minimumZoomScale = scale;
     self.scrollView.maximumZoomScale = scale * 3;
     self.scrollView.zoomScale = scale;
+    
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    
+    // Center the image as it becomes smaller than the size of the screen
+    CGSize boundsSize = self.scrollView.bounds.size;
+    CGRect frameToCenter = _imageView.frame;
+    
+    // Horizontally
+    if (frameToCenter.size.width < boundsSize.width) {
+        frameToCenter.origin.x = floorf((boundsSize.width - frameToCenter.size.width) / 2.0);
+	} else {
+        frameToCenter.origin.x = 0;
+	}
+    
+    // Vertically
+    if (frameToCenter.size.height < boundsSize.height) {
+        frameToCenter.origin.y = floorf((boundsSize.height - frameToCenter.size.height) / 2.0);
+	} else {
+        frameToCenter.origin.y = 0;
+	}
+    
+	// Center
+	if (!CGRectEqualToRect(_imageView.frame, frameToCenter))
+		_imageView.frame = frameToCenter;
     
 //    [self.view setNeedsDisplay];
 }
@@ -84,6 +106,27 @@
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView NS_AVAILABLE_IOS(3_2)
 {
 //    NSLog(@"scrollViewDidZoom");
+    // Center the image as it becomes smaller than the size of the screen
+    CGSize boundsSize = self.scrollView.bounds.size;
+    CGRect frameToCenter = _imageView.frame;
+    
+    // Horizontally
+    if (frameToCenter.size.width < boundsSize.width) {
+        frameToCenter.origin.x = floorf((boundsSize.width - frameToCenter.size.width) / 2.0);
+	} else {
+        frameToCenter.origin.x = 0;
+	}
+    
+    // Vertically
+    if (frameToCenter.size.height < boundsSize.height) {
+        frameToCenter.origin.y = floorf((boundsSize.height - frameToCenter.size.height) / 2.0);
+	} else {
+        frameToCenter.origin.y = 0;
+	}
+    
+	// Center
+	if (!CGRectEqualToRect(_imageView.frame, frameToCenter))
+		_imageView.frame = frameToCenter;
 }// any zoom scale changes
 
 
@@ -101,5 +144,6 @@
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
 {
 //    NSLog(@"scrollViewDidEndZooming");
+
 }// scale between minimum and maximum. called after any 'bounce' animations
 @end
