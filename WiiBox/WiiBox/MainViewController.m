@@ -57,7 +57,21 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    
+    
     _tabBarView.frame = self.tabBar.frame;
+    _bgView.frame = self.tabBarView.bounds;
+    
+    float width = self.tabBarView.bounds.size.width;
+    float height = self.tabBarView.bounds.size.height;
+    float offx = (width / _tabButtons.count - 30) / 2;
+    for (int i = 0; i < _tabButtons.count; i++) {
+        UIButton *button = _tabButtons[i];
+        button.frame = CGRectMake(offx + (30 + offx * 2) * i, (height - 30) / 2, 30, 30);
+    }
+    
+    _sliderOffX = (width / _tabButtons.count - 15) / 2;
+    _slider.frame = CGRectMake(_sliderOffX + (15 + offx * 2) * 0, (height - 44) / 2, 15, 44);
 }
 
 - (void)dealloc
@@ -67,6 +81,8 @@
     [_badgeView release];
     [_badgeLabel release];
     [_homeViewController release];
+    [_tabButtons release];
+    [_bgView release];
     [super dealloc];
 }
 
@@ -139,23 +155,29 @@
     self.tabBarView = [[UIView alloc] initWithFrame:self.tabBar.frame];
     
     //背景
-    UIImageView *bgView = [UIFactory createImageView:@"tabbar_background.png"];
-    bgView.frame = self.tabBarView.bounds;
-    [self.tabBarView addSubview:bgView];
+    _bgView = [UIFactory createImageView:@"tabbar_background.png"];
+//    bgView.frame = self.tabBarView.bounds;
+    [self.tabBarView addSubview:_bgView];
     
     //添加TabBarItem
     NSArray *tabBarItemBgNames = @[@"tabbar_home.png", @"tabbar_message_center.png", @"tabbar_profile.png", @"tabbar_discover.png", @"tabbar_more.png"];
     NSArray *tabBarItemBgHightlightNames = @[@"tabbar_home_highlighted.png", @"tabbar_message_center_highlighted.png", @"tabbar_profile_highlighted.png", @"tabbar_discover_highlighted.png", @"tabbar_more_highlighted.png"];
-    float width = self.tabBarView.bounds.size.width;
-    float height = self.tabBarView.bounds.size.height;
-    float offx = (width / tabBarItemBgNames.count - 30) / 2;
+    
+    if (_tabButtons == nil) {
+        _tabButtons = [[NSMutableArray arrayWithCapacity:tabBarItemBgNames.count] retain];
+    }
+    
+//    float width = self.tabBarView.bounds.size.width;
+//    float height = self.tabBarView.bounds.size.height;
+//    float offx = (width / tabBarItemBgNames.count - 30) / 2;
     for (int i = 0; i < tabBarItemBgNames.count; i++) {
         UIButton *button = [UIFactory createButton:tabBarItemBgNames[i] highlighted:tabBarItemBgHightlightNames[i]];
-        button.frame = CGRectMake(offx + (30 + offx * 2) * i, (height - 30) / 2, 30, 30);
+//        button.frame = CGRectMake(offx + (30 + offx * 2) * i, (height - 30) / 2, 30, 30);
         button.tag = i;
         button.showsTouchWhenHighlighted = YES;
         [button addTarget:self action:@selector(selectedTab:) forControlEvents:UIControlEventTouchUpInside];
         [self.tabBarView addSubview:button];
+        [_tabButtons addObject:button];
     }
     
     [self.view addSubview:self.tabBarView];
@@ -163,8 +185,8 @@
     //指示条
     _slider = [[UIFactory createImageView:@"tabbar_slider.png"] retain];
     _slider.backgroundColor = [UIColor clearColor];
-    _sliderOffX = (width / tabBarItemBgNames.count - 15) / 2;
-    _slider.frame = CGRectMake(_sliderOffX + (15 + offx * 2) * 0, (height - 44) / 2, 15, 44);
+//    _sliderOffX = (width / tabBarItemBgNames.count - 15) / 2;
+//    _slider.frame = CGRectMake(_sliderOffX + (15 + offx * 2) * 0, (height - 44) / 2, 15, 44);
     [self.tabBarView addSubview:_slider];
 }
 

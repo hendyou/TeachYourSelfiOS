@@ -21,6 +21,8 @@
     float _sliderOffX;
     ThemeImageView *_badgeView;
     UILabel *_badgeLabel;
+    NSMutableArray *_tabButtons;
+    UIImageView *_bgView;
     
     HomeViewController *_homeViewController;
 }
