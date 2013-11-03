@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:@"搜索" image:[UIImage imageNamed:@"monster1"] tag:3];
+    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[UIImage imageNamed:@"monster1"] tag:3];
     self.tabBarItem = tabBarItem;
     [tabBarItem release];
 }

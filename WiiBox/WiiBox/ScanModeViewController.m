@@ -64,6 +64,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+        [cell autorelease];
     }
     
     cell.textLabel.text = _modes[indexPath.row];

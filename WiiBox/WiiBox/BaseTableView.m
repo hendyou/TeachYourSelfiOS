@@ -169,7 +169,7 @@
         float offset = scrollView.contentOffset.y;
         float contentHeight = scrollView.contentSize.height;
         
-        float dis = scrollView.height - 49 - (contentHeight - offset);
+        float dis = scrollView.height - self.contentInset.top - self.contentInset.bottom - (contentHeight - offset);
         if (dis > 30) {
             [self loadMore];
         }

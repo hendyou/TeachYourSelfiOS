@@ -32,7 +32,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.tabBar.hidden = YES;
+//        self.tabBar.hidden = YES;
     }
     return self;
 }
@@ -59,7 +59,7 @@
     [super viewDidLayoutSubviews];
     
     
-    _tabBarView.frame = self.tabBar.frame;
+    _tabBarView.frame = self.tabBar.bounds;
     _bgView.frame = self.tabBarView.bounds;
     
     float width = self.tabBarView.bounds.size.width;
@@ -71,7 +71,7 @@
     }
     
     _sliderOffX = (width / _tabButtons.count - 15) / 2;
-    _slider.frame = CGRectMake(_sliderOffX + (15 + offx * 2) * 0, (height - 44) / 2, 15, 44);
+    _slider.frame = CGRectMake(_sliderOffX + (15 + _sliderOffX * 2) * self.selectedIndex, (height - 44) / 2, 15, 44);
 }
 
 - (void)dealloc
@@ -180,7 +180,8 @@
         [_tabButtons addObject:button];
     }
     
-    [self.view addSubview:self.tabBarView];
+//    [self.view addSubview:self.tabBarView];
+    [self.tabBar addSubview:self.tabBarView];
     
     //指示条
     _slider = [[UIFactory createImageView:@"tabbar_slider.png"] retain];
@@ -290,11 +291,9 @@
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     int count = navigationController.viewControllers.count;
-    
+//    NSLog(@"---------%d", count);
     if (count == 2) {
-        [self showTabBar:NO];
-    } else if (count == 1) {
-        [self showTabBar:YES];
+        viewController.hidesBottomBarWhenPushed = YES;
     }
 }
 

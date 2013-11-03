@@ -73,6 +73,22 @@
     [super dealloc];
 }
 
+#pragma mark - Orientation
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
+}
+
 #pragma mark - UI
 - (void)initViews
 {
@@ -89,6 +105,9 @@
     [sendItem release];
     
     [self initMenuBar];
+    
+    //TextView PlaceHolder
+    _textView.placeholder = @"分享新鲜事...";
 }
 
 - (void)initMenuBar
@@ -120,8 +139,16 @@
 #pragma mark - Actions
 - (void)send
 {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.textView resignFirstResponder];
+//    [self.textView resignFirstResponder];
+    NSString *text = _textView.text;
+    if (!NSStringIsEmpty(text)) {
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:text forKey:@"status"];
+        [self.sinaweibo requestWithURL:@"statuses/update.json" params:params httpMethod:@"POST" finished:^(id result) {
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        }];
+    }
 }
 
 - (void)cancel
@@ -131,6 +158,14 @@
 
 - (void)keyboardAction:(NSNotification *)notification
 {
+    
+    UIInterfaceOrientation orientation = self.interfaceOrientation;
+    BOOL isPortrait = YES;
+    if (orientation == UIInterfaceOrientationLandscapeLeft
+        || orientation == UIInterfaceOrientationLandscapeRight) {
+        isPortrait = NO;
+    }
+    
     NSValue *frameValue = notification.userInfo[@"UIKeyboardFrameEndUserInfoKey"];
     CGRect frame = [frameValue CGRectValue];
     
@@ -141,7 +176,7 @@
     if ([notificationName isEqualToString:UIKeyboardWillShowNotification]) {
         _isKeyboardHidden = NO;
         [UIView animateWithDuration:animDuration animations:^{
-            self.menuBar.bottom = self.view.height - frame.size.height;
+            self.menuBar.bottom = self.view.height - (isPortrait ? frame.size.height : frame.size.width);
             self.textView.height = self.menuBar.top;
         }];
     } else if ([notificationName isEqualToString:UIKeyboardWillHideNotification]) {
@@ -153,5 +188,4 @@
     }
 }
 
-#pragma mark - UITextViewDelegate
 @end

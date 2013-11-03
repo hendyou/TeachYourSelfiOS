@@ -37,7 +37,7 @@
         button.insets = UIEdgeInsetsMake(4, 2, 4, 2);
     }
     button.titleLabel.font = [UIFont systemFontOfSize:14];
-    return [button autorelease];
+    return button;
 }
 
 + (ThemeImageView *)createImageView:(NSString *)imageName

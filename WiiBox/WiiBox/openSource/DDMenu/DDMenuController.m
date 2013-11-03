@@ -27,7 +27,7 @@
 #import "DDMenuController.h"
 
 #define kMenuFullWidth 320.0f
-#define kMenuDisplayedWidth 200.0f  //左侧视图的宽度
+#define kMenuDisplayedWidth 60.0f  //左侧视图的宽度
 #define kMenuOverlayWidth (self.view.bounds.size.width - kMenuDisplayedWidth)
 #define kMenuBounceOffset 10.0f
 #define kMenuBounceDuration .3f
@@ -162,7 +162,6 @@
 #pragma mark - GestureRecognizers
 
 - (void)pan:(UIPanGestureRecognizer*)gesture {
-
     if (gesture.state == UIGestureRecognizerStateBegan) {
         
         [self showShadow:YES];
@@ -229,7 +228,6 @@
             }
             
         }
-        
         _root.view.frame = frame;
 
     } else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
@@ -259,7 +257,7 @@
         if (bounce) {
             duration = (span / velocity.x); // bouncing we'll use the current velocity to determine duration
         } else {
-            duration = ((span - originX) / span) * duration; // user just moved a little, use the defult duration, otherwise it would be too slow
+            duration = ((span - fabs(originX)) / span) * duration; // user just moved a little, use the defult duration, otherwise it would be too slow
         }
         
         [CATransaction begin];
@@ -756,6 +754,23 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self showRootController:YES];
+}
+
+//--------------------- Add by Hendy ------------------
+#pragma mark - Orientation
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
 }
 
 @end

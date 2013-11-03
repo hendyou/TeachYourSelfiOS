@@ -7,13 +7,14 @@
 //
 
 #import "BaseViewController.h"
+#import "GCPlaceholderTextView.h"
 
-@interface NewWeiboViewController : BaseViewController<UITextViewDelegate>
+@interface NewWeiboViewController : BaseViewController
 {
     NSMutableArray *_menuBtns;
     BOOL _isKeyboardHidden;
 }
-@property (retain, nonatomic) IBOutlet UITextView *textView;
+@property (retain, nonatomic) IBOutlet GCPlaceholderTextView *textView;
 
 @property (retain, nonatomic) IBOutlet UIView *menuBar;
 @end

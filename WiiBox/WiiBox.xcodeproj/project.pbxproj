@@ -580,6 +580,7 @@
 		B3B5999617DF597C0095BD51 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B5999517DF597C0095BD51 /* BaseNavigationController.m */; };
 		B3B66CFA180D7FF0006C84F4 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B66CF8180D7FF0006C84F4 /* ImageViewController.m */; };
 		B3B66CFB180D7FF0006C84F4 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B66CF9180D7FF0006C84F4 /* ImageViewController.xib */; };
+		B3E8C99D182290EE001F3A36 /* GCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E8C99C182290EE001F3A36 /* GCPlaceholderTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1225,6 +1226,8 @@
 		B3B66CF7180D7FF0006C84F4 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		B3B66CF8180D7FF0006C84F4 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		B3B66CF9180D7FF0006C84F4 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		B3E8C99B182290EE001F3A36 /* GCPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPlaceholderTextView.h; sourceTree = "<group>"; };
+		B3E8C99C182290EE001F3A36 /* GCPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPlaceholderTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2034,6 +2037,7 @@
 		B3B5996917DF52870095BD51 /* openSource */ = {
 			isa = PBXGroup;
 			children = (
+				B3E8C99A182290EE001F3A36 /* GCPlaceholderTextView */,
 				B3A7689517E7F74300F4A589 /* RegexKitLite */,
 				B3B5998217DF53220095BD51 /* DDMenu */,
 				B3B5997E17DF530E0095BD51 /* FontLabel */,
@@ -2092,6 +2096,15 @@
 				B3AE7FDD17E9424C00387EBF /* BaseTableView.m */,
 			);
 			name = BaseView;
+			sourceTree = "<group>";
+		};
+		B3E8C99A182290EE001F3A36 /* GCPlaceholderTextView */ = {
+			isa = PBXGroup;
+			children = (
+				B3E8C99B182290EE001F3A36 /* GCPlaceholderTextView.h */,
+				B3E8C99C182290EE001F3A36 /* GCPlaceholderTextView.m */,
+			);
+			path = GCPlaceholderTextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2713,6 +2726,7 @@
 				B3A768BC17E880FB00F4A589 /* DateUtil.m in Sources */,
 				B3AE7FDE17E9424C00387EBF /* BaseTableView.m in Sources */,
 				B3AE7FEC17E9433C00387EBF /* EGORefreshTableHeaderView.m in Sources */,
+				B3E8C99D182290EE001F3A36 /* GCPlaceholderTextView.m in Sources */,
 				B3AE7FF117E94CBE00387EBF /* WeiboTableView.m in Sources */,
 				B32825E317F145B1002E2CEF /* AttentionUtil.m in Sources */,
 				B32825EB17F19376002E2CEF /* MBProgressHUD.m in Sources */,

@@ -38,6 +38,7 @@
     [self initViews];
     
     [self loadData];
+    
 }
 
 - (void)didReceiveMemoryWarning

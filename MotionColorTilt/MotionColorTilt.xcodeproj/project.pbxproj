@@ -382,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chang Jun (88CG7BG3X7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MotionColorTilt/MotionColorTilt-Prefix.pch";
 				INFOPLIST_FILE = "MotionColorTilt/MotionColorTilt-Info.plist";
@@ -395,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chang Jun (88CG7BG3X7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MotionColorTilt/MotionColorTilt-Prefix.pch";
 				INFOPLIST_FILE = "MotionColorTilt/MotionColorTilt-Info.plist";
@@ -464,6 +466,7 @@
 				B325B54C181A3752007E6CF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B325B54D181A3752007E6CF3 /* Build configuration list for PBXNativeTarget "MotionColorTiltTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +475,7 @@
 				B325B54F181A3752007E6CF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

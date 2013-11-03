@@ -15,7 +15,7 @@
 @class ThemeImageView;
 @class HomeViewController;
 
-@interface MainViewController : UITabBarController <SinaWeiboDelegate,UINavigationControllerDelegate>
+@interface MainViewController : UITabBarController <SinaWeiboDelegate,UINavigationControllerDelegate, UINavigationControllerDelegate>
 {
     UIImageView *_slider;
     float _sliderOffX;

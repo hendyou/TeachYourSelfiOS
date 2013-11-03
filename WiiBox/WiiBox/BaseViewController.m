@@ -65,9 +65,6 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    if (WXHLOSVersion() >= 7.0 && self.hiddenTabBar && self.tabBarController != nil && self.navigationController.viewControllers.count > 1) {
-        self.view.height += self.tabBarController.tabBar.height;
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

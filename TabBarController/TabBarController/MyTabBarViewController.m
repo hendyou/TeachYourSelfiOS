@@ -33,6 +33,19 @@
 {
     [super viewWillAppear:animated];
     self.selectedIndex = 2;
+//    self.tabBar.selectedImageTintColor = [UIColor redColor];
+    self.tabBar.tintColor = [UIColor greenColor];
+    
+    self.tabBar.barStyle = UIBarStyleBlack;
+    
+    UIImage *image = [UIImage imageNamed:@"tabbar_slider.png"];
+    self.tabBar.selectionIndicatorImage = image;
+    
+//    UIView *view = [[UIView alloc] initWithFrame:self.tabBar.bounds];
+//    view.backgroundColor = [UIColor redColor];
+//    
+//    [self.tabBar addSubview:view];
+    
 }
 
 - (void)didReceiveMemoryWarning
